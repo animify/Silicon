@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Silicon } from 'silicon.ui';
+import { Button, Silicon } from '../../src';
 
 export default function App() {
     return (
