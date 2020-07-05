@@ -1,11 +1,12 @@
 {
   "name": "silicon",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "index.js",
   "license": "MIT",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   },
+  "repository": "git://github.com/animify/Silicon.git.",
   "scripts": {
     "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
     "build": "NODE_ENV=production node ./build.js",
