@@ -1,8 +1,13 @@
-const darkTheme = {
+import { Theme } from './types';
+import baseTheme from './base';
+
+const darkTheme: Theme = {
+    ...baseTheme,
     color: {
         primary: 'black',
         secondary: 'orange',
-        additional: 'lightgreen',
+        white: '#fff',
+        black: '#000',
     },
 };
 

@@ -6,7 +6,12 @@ export default function App() {
         <Silicon>
             <>
                 <p>Silicon Docs</p>
-                <Button>Ok</Button>
+                <div style={{ margin: 10 }}>
+                    <Button kind="primary">Primary Button</Button>
+                </div>
+                <div style={{ margin: 10 }}>
+                    <Button kind="secondary">Secondary Button</Button>
+                </div>
             </>
         </Silicon>
     );

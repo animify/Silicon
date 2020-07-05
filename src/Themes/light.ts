@@ -1,10 +1,14 @@
-const lightTheme = {
+import { Theme } from './types';
+import baseTheme from './base';
+
+const lightTheme: Theme = {
+    ...baseTheme,
     color: {
-        primary: 'lightblue',
+        primary: '#4f3bf1',
         secondary: 'orange',
-        additional: 'lightgreen',
+        white: '#fff',
+        black: '#000',
     },
 };
 
 export default lightTheme;
-export type LightTheme = typeof lightTheme;
