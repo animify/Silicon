@@ -1,0 +1,16 @@
+{
+  "name": "silicon.ui",
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": ""
+  },
+  "dependencies": {
+    "fela": "^11.3.0",
+    "fela-plugin-fallback-value": "^11.3.0",
+    "fela-plugin-prefixer": "^11.3.0",
+    "fela-plugin-typescript": "^11.3.0",
+    "react-fela": "^11.3.0"
+  }
+}
