@@ -3360,6 +3360,14 @@ fela-plugin-typescript@^11.3.0:
   dependencies:
     isobject "^3.0.1"
 
+fela-plugin-unit@^11.3.0:
+  version "11.3.0"
+  resolved "https://registry.yarnpkg.com/fela-plugin-unit/-/fela-plugin-unit-11.3.0.tgz#5761332e7e40f05d3408bb3c007a5acfced86b93"
+  integrity sha512-2+Huctvw0DFuESvAQ6qKVlJs0tdy3sw1ZQkSJH6vAlA8xX/TUnU/+bW4ZPmr6UtIrB0hZv7iClBT40x2Pow2zw==
+  dependencies:
+    css-in-js-utils "^3.0.0"
+    isobject "^3.0.1"
+
 fela-tools@^11.3.0:
   version "11.3.0"
   resolved "https://registry.yarnpkg.com/fela-tools/-/fela-tools-11.3.0.tgz#29bd3ce57e76e3c160886b56c7ef822084ecd644"

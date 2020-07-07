@@ -1,11 +1,12 @@
 import { createRenderer, IStyle } from 'fela';
 import typescript from 'fela-plugin-typescript';
 import prefixer from 'fela-plugin-prefixer';
+import unit from 'fela-plugin-unit';
 import fallbackValue from 'fela-plugin-fallback-value';
 import baseTheme from '../Themes/base';
 
 export const renderer = createRenderer({
-    plugins: [typescript(), prefixer(), fallbackValue()],
+    plugins: [typescript(), prefixer(), unit(), fallbackValue()],
 });
 
 renderer.renderStatic(`

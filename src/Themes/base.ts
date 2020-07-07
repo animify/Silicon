@@ -1,7 +1,23 @@
-import { Theme } from './types';
+import { Theme, ThemeSpacing } from './types';
 import { fontFamilyHeading, fontFamilyBody, fontFamilyCode } from './defaults';
 
-const baseTheme: Pick<Theme, 'font'> = {
+const spacing: ThemeSpacing = Array(12)
+    .fill(null)
+    .reduce((obj, _, index) => {
+        const increment = index + 1;
+        const value = increment * 4;
+        obj[increment] = `${value}px`;
+        return obj;
+    }, {});
+
+const baseTheme: Omit<Theme, 'color'> = {
+    screens: {
+        sm: '640px',
+        md: '768px',
+        lg: '1024px',
+        xl: '1280px',
+    },
+    spacing,
     font: {
         family: {
             heading: fontFamilyHeading,
