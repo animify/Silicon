@@ -3,8 +3,9 @@ import { ThemeTypographyScale, Theme, ThemeFontWeight, ThemeFontFamily } from '.
 import { useFela, CssFelaStyle } from 'react-fela';
 import emptyRuleFn from '../utils/emptyRuleFn';
 import { IStyle } from 'fela';
+import { BoxProps, boxRule } from '../utils/box';
 
-interface Props {
+interface Props extends BoxProps {
     children: React.ReactNode;
     family?: keyof ThemeFontFamily;
     size?: keyof ThemeTypographyScale;
@@ -33,5 +34,5 @@ export default function Text({ style = emptyRuleFn, ...props }: Props) {
     const { css } = useFela<Theme, Props>(props);
     const Element = props.size || 'p';
 
-    return <Element className={css(rule, style)}>{props.children}</Element>;
+    return <Element className={css(rule, style, boxRule)}>{props.children}</Element>;
 }

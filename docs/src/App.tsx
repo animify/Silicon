@@ -9,9 +9,7 @@ export default function App() {
                     Font Sizes
                 </Text>
 
-                <div style={{ margin: 10 }}>
-                    <Text size="h1">Heading 1</Text>
-                </div>
+                <Text size="h1">Heading 1</Text>
                 <div style={{ margin: 10 }}>
                     <Text size="h2">Heading 2</Text>
                 </div>

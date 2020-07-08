@@ -3,8 +3,9 @@ import { Theme } from '../Themes/types';
 import { useFela, CssFelaStyle } from 'react-fela';
 import emptyRuleFn from '../utils/emptyRuleFn';
 import { IStyle } from 'fela';
+import { BoxProps, boxRule } from '../utils/box';
 
-interface Props {
+interface Props extends BoxProps {
     children: React.ReactNode;
     direction?: IStyle['flexDirection'];
     wrap?: IStyle['flexWrap'];
@@ -24,5 +25,5 @@ const rule: CssFelaStyle<Theme, Props> = (state) => ({
 export default function Flex({ style = emptyRuleFn, ...props }: Props) {
     const { css } = useFela<Theme, Props>(props);
 
-    return <div className={css(rule, style)}>{props.children}</div>;
+    return <div className={css(rule, style, boxRule)}>{props.children}</div>;
 }

@@ -2,8 +2,9 @@ import React from 'react';
 import { useFela, CssFelaStyle } from 'react-fela';
 import { Theme } from '../Themes/types';
 import emptyRuleFn from '../utils/emptyRuleFn';
+import { BoxProps, boxRule } from '../utils/box';
 
-interface Props {
+interface Props extends BoxProps {
     kind: 'primary' | 'secondary';
     children: React.ReactNode;
     style?: CssFelaStyle<Theme, Omit<Props, 'style'>>;
@@ -35,7 +36,7 @@ export default function Button({ style = emptyRuleFn, ...props }: Props) {
     const { css } = useFela<Theme, Props>(props);
 
     return (
-        <button className={css(rule, style)} disabled={props.loading || props.disabled}>
+        <button className={css(rule, style, boxRule)} disabled={props.loading || props.disabled}>
             {props.children}
         </button>
     );
