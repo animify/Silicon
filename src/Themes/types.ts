@@ -47,15 +47,15 @@ export interface ThemeFontWeight {
     black: number;
 }
 
-export interface ThemeTypography {
-    h1: string;
-    h2: string;
-    h3: string;
-    h4: string;
-    h5: string;
-    h6: string;
-    p: string;
-    small: string;
+export interface ThemeTypographyScale {
+    h1: string | number;
+    h2: string | number;
+    h3: string | number;
+    h4: string | number;
+    h5: string | number;
+    h6: string | number;
+    p: string | number;
+    small: string | number;
 }
 
 export interface Theme {
@@ -63,9 +63,9 @@ export interface Theme {
     spacing: ThemeSpacing;
     color: ThemeColor;
     font: {
-        size: ThemeTypography;
-        lineHeight: ThemeTypography;
-        letterSpacing: ThemeTypography;
+        size: ThemeTypographyScale;
+        lineHeight: ThemeTypographyScale;
+        letterSpacing: ThemeTypographyScale;
         family: ThemeFontFamily;
         weight: ThemeFontWeight;
     };
