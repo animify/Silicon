@@ -10,6 +10,19 @@ export default function App() {
                     <Button kind="primary">Primary Button</Button>
                 </div>
                 <div style={{ margin: 10 }}>
+                    <h5>Disabled Button</h5>
+                    <Button kind="secondary" disabled={true}>
+                        Disabled
+                    </Button>
+                </div>
+                <div style={{ margin: 10 }}>
+                    <h5>Loading Button</h5>
+                    <Button kind="secondary" loading={true}>
+                        Loading
+                    </Button>
+                </div>
+                <div style={{ margin: 10 }}>
+                    <h5>Custom Button</h5>
                     <Button
                         kind="secondary"
                         style={(state) => ({

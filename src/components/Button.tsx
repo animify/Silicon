@@ -24,8 +24,8 @@ const rule: CssFelaStyle<Theme, Props> = (state) => ({
     letterSpacing: '0.4px',
     cursor: state.loading || state.disabled ? 'default' : 'pointer',
     nested: {
-        ':hover': {},
-        ':active': {
+        ':hover:not(:disabled)': {},
+        ':active:not(:disabled)': {
             backgroundColor: state.theme.color.secondary,
         },
     },
@@ -34,5 +34,9 @@ const rule: CssFelaStyle<Theme, Props> = (state) => ({
 export default function Button({ style = emptyRuleFn, ...props }: Props) {
     const { css } = useFela<Theme, Props>(props);
 
-    return <button className={css(rule, style)}>{props.children}</button>;
+    return (
+        <button className={css(rule, style)} disabled={props.loading || props.disabled}>
+            {props.children}
+        </button>
+    );
 }
