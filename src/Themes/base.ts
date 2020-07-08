@@ -1,14 +1,5 @@
-import { Theme, ThemeSpacing } from './types';
-import { fontFamilyHeading, fontFamilyBody, fontFamilyCode } from './defaults';
-
-const spacing: ThemeSpacing = Array(12)
-    .fill(null)
-    .reduce((obj, _, index) => {
-        const increment = index + 1;
-        const value = increment * 4;
-        obj[increment] = `${value}px`;
-        return obj;
-    }, {});
+import { Theme } from './types';
+import { fontFamilyHeading, fontFamilyBody, fontFamilyCode, spacing } from './defaults';
 
 const baseTheme: Omit<Theme, 'color'> = {
     screens: {
