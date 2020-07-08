@@ -1,6 +1,6 @@
 import React from 'react';
 import { ThemeTypographyScale, Theme, ThemeFontWeight, ThemeFontFamily } from '../Themes/types';
-import { useFela, CssFelaStyle } from 'react-fela';
+import { useFela, CssFelaStyle, FelaComponent } from 'react-fela';
 import emptyRuleFn from '../utils/emptyRuleFn';
 import { IStyle } from 'fela';
 import { BoxProps, boxRule } from '../utils/box';

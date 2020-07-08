@@ -17,6 +17,7 @@ export interface BoxProps {
     pl?: IStyle['padding'];
     px?: IStyle['padding'];
     py?: IStyle['padding'];
+    position?: IStyle['position'];
     width?: IStyle['width'];
     height?: IStyle['height'];
     display?: IStyle['display'];
@@ -24,10 +25,17 @@ export interface BoxProps {
     minHeight?: IStyle['minHeight'];
     maxWidth?: IStyle['maxWidth'];
     maxHeight?: IStyle['maxHeight'];
-    verticalAlign?: IStyle['verticalAlign'];
     overflow?: IStyle['overflow'];
     overflowX?: IStyle['overflowX'];
     overflowY?: IStyle['overflowY'];
+    border?: IStyle['border'];
+    borderTop?: IStyle['borderTop'];
+    borderRight?: IStyle['borderRight'];
+    borderBottom?: IStyle['borderBottom'];
+    borderLeft?: IStyle['borderLeft'];
+    borderRadius?: IStyle['borderRadius'];
+    borderWidth?: IStyle['borderWidth'];
+    borderStyle?: IStyle['borderStyle'];
 }
 
 export const boxRule: CssFelaStyle<Theme, BoxProps> = (state) => {
@@ -50,6 +58,7 @@ export const boxRule: CssFelaStyle<Theme, BoxProps> = (state) => {
         paddingBottom,
         paddingLeft,
         paddingRight,
+        position: state.position,
         width: state.width,
         height: state.height,
         display: state.display,
@@ -57,9 +66,16 @@ export const boxRule: CssFelaStyle<Theme, BoxProps> = (state) => {
         minHeight: state.minHeight,
         maxWidth: state.maxWidth,
         maxHeight: state.maxHeight,
-        verticalAlign: state.verticalAlign,
         overflow: state.overflow,
         overflowX: state.overflowX,
         overflowY: state.overflowY,
+        border: state.border,
+        borderTop: state.borderTop,
+        borderRight: state.borderRight,
+        borderBottom: state.borderBottom,
+        borderLeft: state.borderLeft,
+        borderRadius: state.borderRadius,
+        borderWidth: state.borderWidth,
+        borderStyle: state.borderStyle,
     };
 };

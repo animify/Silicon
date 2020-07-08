@@ -7,6 +7,7 @@ import { BoxProps, boxRule } from '../utils/box';
 
 interface Props extends BoxProps {
     children: React.ReactNode;
+    as?: keyof React.ReactHTML;
     direction?: IStyle['flexDirection'];
     wrap?: IStyle['flexWrap'];
     align?: IStyle['alignItems'];
@@ -23,7 +24,8 @@ const rule: CssFelaStyle<Theme, Props> = (state) => ({
 });
 
 export default function Flex({ style = emptyRuleFn, ...props }: Props) {
+    const Element = props.as || 'div';
     const { css } = useFela<Theme, Props>(props);
 
-    return <div className={css(rule, style, boxRule)}>{props.children}</div>;
+    return <Element className={css(rule, style, boxRule)}>{props.children}</Element>;
 }
