@@ -19,7 +19,7 @@ const rule: CssFelaStyle<Theme, Props> = (state) => ({
     padding: '12px 24px',
     appearance: 'none',
     outline: 0,
-    border: '0px',
+    border: 0,
     borderRadius: '4px',
     lineHeight: '24px',
     letterSpacing: '0.4px',
@@ -36,7 +36,7 @@ export default function Button({ style = emptyRuleFn, ...props }: Props) {
     const { css } = useFela<Theme, Props>(props);
 
     return (
-        <button className={css(rule, style, boxRule)} disabled={props.loading || props.disabled}>
+        <button className={css(boxRule, rule, style)} disabled={props.loading || props.disabled}>
             {props.children}
         </button>
     );

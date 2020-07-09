@@ -4,13 +4,15 @@ import { RendererProvider, ThemeProvider } from 'react-fela';
 import lightTheme from '../Themes/light';
 
 interface Props {
-    children: React.ReactElement;
+    children: React.ReactNode;
 }
 
 export default function Silicon({ children }: Props) {
     return (
         <RendererProvider renderer={renderer}>
-            <ThemeProvider theme={lightTheme}>{children}</ThemeProvider>
+            <ThemeProvider theme={lightTheme}>
+                <>{children}</>
+            </ThemeProvider>
         </RendererProvider>
     );
 }

@@ -42,5 +42,5 @@ export default function Grid({ style = emptyRuleFn, ...props }: Props) {
     const Element = props.as || 'div';
     const { css } = useFela<Theme, Props>(props);
 
-    return <Element className={css(rule, style, boxRule)}>{props.children}</Element>;
+    return <Element className={css(boxRule, rule, style)}>{props.children}</Element>;
 }
