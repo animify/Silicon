@@ -1,6 +1,5 @@
 import * as CSS from 'csstype';
 import { TLength } from '../types';
-import { IStyle } from 'fela';
 import { CssFelaStyle } from 'react-fela';
 
 export type ThemeScalingKey = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
