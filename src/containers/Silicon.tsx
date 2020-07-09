@@ -1,16 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { renderer } from '../utils/felaConfig';
 import { RendererProvider, ThemeProvider } from 'react-fela';
 import lightTheme from '../Themes/light';
+import { Theme } from '../Themes/types';
 
 interface Props {
     children: React.ReactNode;
+    theme?: Theme;
 }
 
-export default function Silicon({ children }: Props) {
+export default function Silicon({ children, theme = lightTheme }: Props) {
     return (
         <RendererProvider renderer={renderer}>
-            <ThemeProvider theme={lightTheme}>
+            <ThemeProvider theme={theme}>
                 <>{children}</>
             </ThemeProvider>
         </RendererProvider>
