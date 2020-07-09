@@ -16,7 +16,7 @@ const rule: CssFelaStyle<Theme, Props> = (state) => ({
     backgroundColor: state.theme.color.primary,
     color: state.theme.color.white,
     fontWeight: state.theme.font.weight.medium,
-    padding: '12px 24px',
+    padding: '8px 16px',
     appearance: 'none',
     outline: 0,
     border: 0,

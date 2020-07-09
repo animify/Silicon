@@ -159,6 +159,24 @@ export default function App() {
                         </Flex>
                     </Flex>
                 </Flex>
+
+                <Flex as="section" direction="column" mt={48}>
+                    <Text size="h3" weight="bold" mb={12}>
+                        Using Box props
+                    </Text>
+
+                    <Flex>
+                        <Flex p={32} bg="primary">
+                            Primary bg
+                        </Flex>
+                    </Flex>
+
+                    <Flex>
+                        <Flex p={32} bg="secondary" color="white">
+                            White color
+                        </Flex>
+                    </Flex>
+                </Flex>
             </Container>
         </Silicon>
     );

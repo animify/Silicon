@@ -37,6 +37,9 @@ export interface BoxProps {
     borderRadius?: CSS.BorderRadiusProperty<TLength>;
     borderWidth?: CSS.BorderWidthProperty<TLength>;
     borderStyle?: CSS.BorderStyleProperty;
+    bg?: CSS.BackgroundColorProperty;
+    color?: CSS.ColorProperty;
+    borderColor?: CSS.BorderColorProperty;
 }
 
 export const boxRule: CssFelaStyle<Theme, BoxProps> = (state) => {
@@ -49,6 +52,10 @@ export const boxRule: CssFelaStyle<Theme, BoxProps> = (state) => {
     const paddingBottom = state.pb ?? state.py;
     const paddingLeft = state.pl ?? state.px;
     const paddingRight = state.pr ?? state.px;
+
+    const color = state.color ? state.theme.color[state.color] || state.color : undefined;
+    const backgroundColor = state.bg ? state.theme.color[state.bg] || state.bg : undefined;
+    const borderColor = state.borderColor ? state.theme.color[state.borderColor] || state.borderColor : undefined;
 
     return {
         margin: state.m,
@@ -80,5 +87,8 @@ export const boxRule: CssFelaStyle<Theme, BoxProps> = (state) => {
         borderRadius: state.borderRadius,
         borderWidth: state.borderWidth,
         borderStyle: state.borderStyle,
+        backgroundColor,
+        color,
+        borderColor,
     };
 };
