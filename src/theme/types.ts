@@ -1,5 +1,7 @@
 import * as CSS from 'csstype';
 import { TLength } from '../types';
+import { IStyle } from 'fela';
+import { CssFelaStyle } from 'react-fela';
 
 export type ThemeScalingKey = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
@@ -58,6 +60,11 @@ export interface ThemeTypographyScale {
 
 export type ThemeContainer = Record<ThemeScalingKey, string>;
 
+export type Variant = CssFelaStyle<Theme, {}>;
+export interface Variants {
+    [key: string]: Variant;
+}
+
 export interface Theme {
     container: ThemeContainer;
     spacing: ThemeSpacing;
@@ -69,4 +76,5 @@ export interface Theme {
         family: ThemeFontFamily;
         weight: ThemeFontWeight;
     };
+    variants: Variants;
 }
