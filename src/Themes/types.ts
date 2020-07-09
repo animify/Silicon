@@ -1,6 +1,8 @@
 import * as CSS from 'csstype';
 import { TLength } from '../types';
 
+export type ThemeScalingKey = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+
 export interface ThemeColor {
     primary: CSS.ColorProperty;
     secondary: CSS.ColorProperty;
@@ -12,14 +14,6 @@ export interface ThemeFontFamily {
     heading: CSS.FontFamilyProperty;
     body: CSS.FontFamilyProperty;
     code: CSS.FontFamilyProperty;
-}
-
-export interface ThemeScreens {
-    sm: string;
-    md: string;
-    lg: string;
-    xl: string;
-    [key: string]: string;
 }
 
 export interface ThemeSpacing {
@@ -62,8 +56,10 @@ export interface ThemeTypographyScale {
     small: CSS.FontSizeProperty<TLength>;
 }
 
+export type ThemeContainer = Record<ThemeScalingKey, string>;
+
 export interface Theme {
-    screens: ThemeScreens;
+    container: ThemeContainer;
     spacing: ThemeSpacing;
     color: ThemeColor;
     font: {

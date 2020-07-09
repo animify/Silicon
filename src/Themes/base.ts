@@ -2,11 +2,12 @@ import { Theme } from './types';
 import { fontFamilyHeading, fontFamilyBody, fontFamilyCode, spacing } from './defaults';
 
 const baseTheme: Omit<Theme, 'color'> = {
-    screens: {
+    container: {
+        xs: '480px',
         sm: '640px',
         md: '768px',
         lg: '1024px',
-        xl: '1280px',
+        xl: '1440px',
     },
     spacing,
     font: {
