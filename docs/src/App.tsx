@@ -127,8 +127,8 @@ export default function App() {
                             style={(state) => ({
                                 backgroundColor: 'red',
                                 marginTop: 100,
-                                fontWeight: state.theme.font.weight.black,
-                                nested: { ':hover': { fontWeight: state.theme.font.weight.thin } },
+                                fontWeight: state.theme.fontWeight.black,
+                                nested: { ':hover': { fontWeight: state.theme.fontWeight.thin } },
                             })}
                         >
                             Improve
@@ -199,6 +199,16 @@ export default function App() {
                         <Flex pb="1" pl="2" pt="3" pr="4" bg="secondary" color="white">
                             Padding Custom
                         </Flex>
+                    </Flex>
+
+                    <Flex>
+                        <Text family="code">Family Custom</Text>
+                    </Flex>
+
+                    <Flex>
+                        <Text size="h3" letterSpacing="small">
+                            Size Custom
+                        </Text>
                     </Flex>
                 </Flex>
             </Container>
