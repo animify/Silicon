@@ -176,6 +176,30 @@ export default function App() {
                             White color
                         </Flex>
                     </Flex>
+
+                    <Flex>
+                        <Flex m="3" bg="secondary" color="white">
+                            Margin 12
+                        </Flex>
+                    </Flex>
+
+                    <Flex>
+                        <Flex p="6" bg="secondary" color="white">
+                            Padding 24
+                        </Flex>
+                    </Flex>
+
+                    <Flex>
+                        <Flex mb="1" ml="2" mt="3" mr="4" bg="secondary" color="white">
+                            Margin Custom
+                        </Flex>
+                    </Flex>
+
+                    <Flex>
+                        <Flex pb="1" pl="2" pt="3" pr="4" bg="secondary" color="white">
+                            Padding Custom
+                        </Flex>
+                    </Flex>
                 </Flex>
             </Container>
         </Silicon>
