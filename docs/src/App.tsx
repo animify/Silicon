@@ -135,6 +135,30 @@ export default function App() {
                         </Button>
                     </Flex>
                 </Flex>
+
+                <Flex as="section" direction="column" mt={48}>
+                    <Text size="h3" weight="bold" mb={12}>
+                        Style Overrides
+                    </Text>
+
+                    <Flex mt={12}>
+                        <Text size="h1" style={{ fontWeight: 800, fontSize: 11 }}>
+                            Heading 1
+                        </Text>
+                    </Flex>
+                </Flex>
+
+                <Flex as="section" direction="column" mt={48}>
+                    <Text size="h3" weight="bold" mb={12}>
+                        Variants
+                    </Text>
+
+                    <Flex>
+                        <Flex p={32} variant="card">
+                            Card variant
+                        </Flex>
+                    </Flex>
+                </Flex>
             </Container>
         </Silicon>
     );
