@@ -3,7 +3,7 @@ import typescript from 'fela-plugin-typescript';
 import prefixer from 'fela-plugin-prefixer';
 import unit from 'fela-plugin-unit';
 import fallbackValue from 'fela-plugin-fallback-value';
-import baseTheme from '../Themes/base';
+import baseTheme from '../themers/base';
 import namedKeys from 'fela-plugin-named-keys';
 
 const namedKeysPlugin = namedKeys({

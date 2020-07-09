@@ -1,5 +1,5 @@
 import { CssFelaStyle } from 'react-fela';
-import { Theme } from '../Themes/types';
+import { Theme } from '../themers/types';
 
 export interface StyleProps<Props = {}> {
     style?: CssFelaStyle<Theme, Omit<Props, 'style'>>;

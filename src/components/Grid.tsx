@@ -1,5 +1,5 @@
 import React from 'react';
-import { Theme } from '../Themes/types';
+import { Theme } from '../themers/types';
 import { useFela, CssFelaStyle } from 'react-fela';
 import { IStyle } from 'fela';
 import { BoxProps, boxRule } from '../utils/boxRule';

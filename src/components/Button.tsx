@@ -1,6 +1,6 @@
 import React from 'react';
 import { useFela, CssFelaStyle } from 'react-fela';
-import { Theme } from '../Themes/types';
+import { Theme } from '../themers/types';
 import { BoxProps, boxRule } from '../utils/boxRule';
 import { StyleProps, styleRule } from '../utils/styleRule';
 

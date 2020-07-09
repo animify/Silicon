@@ -1,8 +1,8 @@
 import React from 'react';
 import { renderer } from '../utils/felaConfig';
 import { RendererProvider, ThemeProvider } from 'react-fela';
-import lightTheme from '../Themes/light';
-import { Theme } from '../Themes/types';
+import lightTheme from '../themers/light';
+import { Theme } from '../themers/types';
 
 interface Props {
     children: React.ReactNode;

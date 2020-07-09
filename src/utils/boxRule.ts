@@ -1,5 +1,5 @@
 import { CssFelaStyle } from 'react-fela';
-import { Theme } from '../Themes/types';
+import { Theme } from '../themers/types';
 import * as CSS from 'csstype';
 import { TLength } from '../types';
 
