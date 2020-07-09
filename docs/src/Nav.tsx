@@ -4,7 +4,7 @@ import packageInfo from '../../package.json';
 
 export default function Nav() {
     return (
-        <Flex width="100%" justify="space-between" p={32}>
+        <Flex as="nav" width="100%" justify="space-between" p={32}>
             <Text>Silicon UI</Text>
             <Text>{packageInfo.version}</Text>
         </Flex>

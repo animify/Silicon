@@ -3342,6 +3342,14 @@ fela-plugin-fallback-value@^11.3.0:
     css-in-js-utils "^3.0.0"
     isobject "^3.0.1"
 
+fela-plugin-named-keys@^11.3.0:
+  version "11.3.0"
+  resolved "https://registry.yarnpkg.com/fela-plugin-named-keys/-/fela-plugin-named-keys-11.3.0.tgz#6ebb42f9f5819960344fccbc716fee226ee47ef4"
+  integrity sha512-Nz9ASEhFvZkmPWVZTwiAU30HYQziP2Cz5ckkJ+l9bGRks64wHbOgO4icBVNtid7bjhllk4rU6L7tf14J6UURYg==
+  dependencies:
+    css-in-js-utils "^3.0.0"
+    isobject "^3.0.1"
+
 fela-plugin-prefixer@^11.3.0:
   version "11.3.0"
   resolved "https://registry.yarnpkg.com/fela-plugin-prefixer/-/fela-plugin-prefixer-11.3.0.tgz#4271307bdaff46e010a2e5e02e0d4132a8e88e1e"

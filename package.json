@@ -16,6 +16,7 @@
   "dependencies": {
     "fela": "^11.3.0",
     "fela-plugin-fallback-value": "^11.3.0",
+    "fela-plugin-named-keys": "^11.3.0",
     "fela-plugin-prefixer": "^11.3.0",
     "fela-plugin-typescript": "^11.3.0",
     "fela-plugin-unit": "^11.3.0",
