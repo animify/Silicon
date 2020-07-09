@@ -42,24 +42,38 @@ export interface BoxProps {
     borderColor?: CSS.BorderColorProperty;
 }
 
+const getFromTheme = (val: string | number | undefined, prop: keyof Theme, theme: Theme) => {
+    if (!val) return val;
+    if (typeof val === 'number') return val;
+
+    const result = theme[prop][val];
+
+    if (!result) return val;
+
+    return result;
+};
+
 export const boxRule: CssFelaStyle<Theme, BoxProps> = (state) => {
-    const marginTop = state.mt ?? state.my;
-    const marginBottom = state.mb ?? state.my;
-    const marginLeft = state.ml ?? state.mx;
-    const marginRight = state.mr ?? state.mx;
+    const margin = getFromTheme(state.m, 'spacing', state.theme);
+    const padding = getFromTheme(state.p, 'spacing', state.theme);
 
-    const paddingTop = state.pt ?? state.py;
-    const paddingBottom = state.pb ?? state.py;
-    const paddingLeft = state.pl ?? state.px;
-    const paddingRight = state.pr ?? state.px;
+    const marginTop = getFromTheme(state.mt, 'spacing', state.theme) ?? state.mt ?? state.my;
+    const marginBottom = getFromTheme(state.mb, 'spacing', state.theme) ?? state.mb ?? state.my;
+    const marginLeft = getFromTheme(state.ml, 'spacing', state.theme) ?? state.ml ?? state.mx;
+    const marginRight = getFromTheme(state.mr, 'spacing', state.theme) ?? state.mr ?? state.mx;
 
-    const color = state.color ? state.theme.color[state.color] || state.color : undefined;
-    const backgroundColor = state.bg ? state.theme.color[state.bg] || state.bg : undefined;
-    const borderColor = state.borderColor ? state.theme.color[state.borderColor] || state.borderColor : undefined;
+    const paddingTop = getFromTheme(state.pt, 'spacing', state.theme) ?? state.pt ?? state.py;
+    const paddingBottom = getFromTheme(state.pb, 'spacing', state.theme) ?? state.pb ?? state.py;
+    const paddingLeft = getFromTheme(state.pl, 'spacing', state.theme) ?? state.pl ?? state.px;
+    const paddingRight = getFromTheme(state.pr, 'spacing', state.theme) ?? state.pr ?? state.px;
+
+    const color = getFromTheme(state.color, 'color', state.theme);
+    const backgroundColor = getFromTheme(state.bg, 'color', state.theme);
+    const borderColor = getFromTheme(state.borderColor, 'color', state.theme);
 
     return {
-        margin: state.m,
-        padding: state.p,
+        margin,
+        padding,
         marginTop,
         marginBottom,
         marginLeft,
