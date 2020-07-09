@@ -4,8 +4,9 @@ import { useFela, CssFelaStyle } from 'react-fela';
 import { IStyle } from 'fela';
 import { BoxProps, boxRule } from '../utils/boxRule';
 import { StyleProps, styleRule } from '../utils/styleRule';
+import { VariantProps, variantRule } from '../utils/variantRule';
 
-interface Props extends BoxProps, StyleProps<Props> {
+interface Props extends BoxProps, StyleProps<Props>, VariantProps {
     children: React.ReactNode;
     href?: string;
     family?: keyof ThemeFontFamily;
@@ -42,7 +43,7 @@ export default function Link(props: Props) {
     const { css } = useFela<Theme, Props>(props);
 
     return (
-        <a className={css(boxRule, rule, styleRule(props))} href={props.href}>
+        <a className={css(boxRule, rule, variantRule, styleRule)} href={props.href}>
             {props.children}
         </a>
     );
