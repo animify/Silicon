@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, Silicon, Text } from '../../src';
 import Nav from './Nav';
+import Image from '../../src/components/Image';
 
 export default function App() {
     return (
@@ -74,6 +75,16 @@ export default function App() {
             <div style={{ margin: 10 }}>
                 <Text weight="black">Black</Text>
             </div>
+
+            <Text size="h3" weight="bold">
+                Image
+            </Text>
+
+            <Image
+                src="https://camo.githubusercontent.com/6062000b0601afb16c465372b15edd8cb78435fd/68747470733a2f2f692e696d6775722e636f6d2f584b54556754382e706e67"
+                alt="Some image"
+                maxWidth={300}
+            />
 
             <Text size="h3" weight="bold">
                 Buttons
