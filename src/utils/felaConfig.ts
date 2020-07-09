@@ -4,9 +4,20 @@ import prefixer from 'fela-plugin-prefixer';
 import unit from 'fela-plugin-unit';
 import fallbackValue from 'fela-plugin-fallback-value';
 import baseTheme from '../Themes/base';
+import namedKeys from 'fela-plugin-named-keys';
+
+const namedKeysPlugin = namedKeys({
+    phablet: '@media (min-width: 768px)',
+    tablet: '@media (min-width: 1024px)',
+    desktop: '@media (min-width: 1440px)',
+    supportsFlex: '@supports (display: flex)',
+    supportsGrid: '@supports (display: grid)',
+    prefersLightTheme: '@media (prefers-color-scheme: light)',
+    prefersDarkTheme: '@media (prefers-color-scheme: dark)',
+});
 
 export const renderer = createRenderer({
-    plugins: [typescript(), prefixer(), unit(), fallbackValue()],
+    plugins: [typescript(), namedKeysPlugin, prefixer(), unit(), fallbackValue()],
 });
 
 renderer.renderStatic(`
