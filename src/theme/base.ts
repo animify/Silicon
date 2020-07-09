@@ -58,6 +58,13 @@ const baseTheme: Omit<Theme, 'color'> = {
             black: 900,
         },
     },
+    variants: {
+        card: ({ theme }) => ({
+            boxShadow: '0 4px 8px rgba(0, 0, 0, .2)',
+            borderRadius: 6,
+            border: `2px solid ${theme.color.primary}`,
+        }),
+    },
 };
 
 export default baseTheme;

@@ -7,4 +7,12 @@ export interface StyleProps<Props = {}> {
 
 const emptyRuleFn: CssFelaStyle<{}, {}> = () => ({});
 
-export const styleRule = ({ style }: StyleProps) => style || emptyRuleFn;
+export const styleRule: CssFelaStyle<Theme, StyleProps> = (state) => {
+    const style = state.style || emptyRuleFn;
+
+    if (typeof style === 'function') {
+        return style(state);
+    }
+
+    return style;
+};
