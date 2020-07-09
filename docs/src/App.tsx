@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Silicon, Text, Flex } from '../../src';
+import { Button, Silicon, Text, Flex, Link } from '../../src';
 import Nav from './Nav';
 import Image from '../../src/components/Image';
 import Container from '../../src/components/Container';
@@ -93,6 +93,14 @@ export default function App() {
                         alt="Some image"
                         maxWidth={300}
                     />
+                </Flex>
+
+                <Flex as="section" direction="column" mt={48}>
+                    <Text size="h3" weight="bold" mb={12}>
+                        Link
+                    </Text>
+
+                    <Link href="https://silicon.gg">Silicon UI</Link>
                 </Flex>
 
                 <Flex as="section" direction="column" mt={48}>

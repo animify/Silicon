@@ -7,9 +7,9 @@ import baseTheme from '../Themes/base';
 import namedKeys from 'fela-plugin-named-keys';
 
 const namedKeysPlugin = namedKeys({
-    phablet: '@media (min-width: 768px)',
-    tablet: '@media (min-width: 1024px)',
-    desktop: '@media (min-width: 1440px)',
+    phablet: '@media (max-width: 768px)',
+    tablet: '@media (max-width: 1024px)',
+    desktop: '@media (min-width: 1024px)',
     supportsFlex: '@supports (display: flex)',
     supportsGrid: '@supports (display: grid)',
     prefersLightTheme: '@media (prefers-color-scheme: light)',
