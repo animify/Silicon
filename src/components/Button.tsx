@@ -1,13 +1,12 @@
 import React from 'react';
 import { useFela, CssFelaStyle } from 'react-fela';
 import { Theme } from '../Themes/types';
-import emptyRuleFn from '../utils/emptyRuleFn';
-import { BoxProps, boxRule } from '../utils/box';
+import { BoxProps, boxRule } from '../utils/boxRule';
+import { StyleProps, styleRule } from '../utils/styleRule';
 
-interface Props extends BoxProps {
+interface Props extends BoxProps, StyleProps<Props> {
     kind: 'primary' | 'secondary';
     children: React.ReactNode;
-    style?: CssFelaStyle<Theme, Omit<Props, 'style'>>;
     loading?: boolean;
     disabled?: boolean;
 }
@@ -32,11 +31,11 @@ const rule: CssFelaStyle<Theme, Props> = (state) => ({
     },
 });
 
-export default function Button({ style = emptyRuleFn, ...props }: Props) {
+export default function Button(props: Props) {
     const { css } = useFela<Theme, Props>(props);
 
     return (
-        <button className={css(boxRule, rule, style)} disabled={props.loading || props.disabled}>
+        <button className={css(boxRule, rule, styleRule(props))} disabled={props.loading || props.disabled}>
             {props.children}
         </button>
     );

@@ -40,17 +40,19 @@ export interface BoxProps {
 }
 
 export const boxRule: CssFelaStyle<Theme, BoxProps> = (state) => {
-    const marginTop = state.mt ?? state.my ?? state.m;
-    const marginBottom = state.mb ?? state.my ?? state.m;
-    const marginLeft = state.ml ?? state.mx ?? state.m;
-    const marginRight = state.mr ?? state.mx ?? state.m;
+    const marginTop = state.mt ?? state.my;
+    const marginBottom = state.mb ?? state.my;
+    const marginLeft = state.ml ?? state.mx;
+    const marginRight = state.mr ?? state.mx;
 
-    const paddingTop = state.pt ?? state.py ?? state.p;
-    const paddingBottom = state.pb ?? state.py ?? state.p;
-    const paddingLeft = state.pl ?? state.px ?? state.p;
-    const paddingRight = state.pr ?? state.px ?? state.p;
+    const paddingTop = state.pt ?? state.py;
+    const paddingBottom = state.pb ?? state.py;
+    const paddingLeft = state.pl ?? state.px;
+    const paddingRight = state.pr ?? state.px;
 
     return {
+        margin: state.m,
+        padding: state.p,
         marginTop,
         marginBottom,
         marginLeft,

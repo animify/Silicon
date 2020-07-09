@@ -1,17 +1,16 @@
 import React from 'react';
 import { ThemeTypographyScale, Theme, ThemeFontWeight, ThemeFontFamily } from '../Themes/types';
 import { useFela, CssFelaStyle } from 'react-fela';
-import emptyRuleFn from '../utils/emptyRuleFn';
 import { IStyle } from 'fela';
-import { BoxProps, boxRule } from '../utils/box';
+import { BoxProps, boxRule } from '../utils/boxRule';
+import { StyleProps, styleRule } from '../utils/styleRule';
 
-interface Props extends BoxProps {
+interface Props extends BoxProps, StyleProps<Props> {
     children: React.ReactNode;
     family?: keyof ThemeFontFamily;
     size?: keyof ThemeTypographyScale;
     weight?: keyof ThemeFontWeight;
     textAlign?: IStyle['textAlign'];
-    style?: CssFelaStyle<Theme, Omit<Props, 'style'>>;
 }
 
 const rule: CssFelaStyle<Theme, Props> = (state) => {
@@ -30,9 +29,9 @@ const rule: CssFelaStyle<Theme, Props> = (state) => {
     };
 };
 
-export default function Text({ style = emptyRuleFn, ...props }: Props) {
+export default function Text(props: Props) {
     const { css } = useFela<Theme, Props>(props);
     const Element = props.size || 'p';
 
-    return <Element className={css(boxRule, rule, style)}>{props.children}</Element>;
+    return <Element className={css(boxRule, rule, styleRule(props))}>{props.children}</Element>;
 }

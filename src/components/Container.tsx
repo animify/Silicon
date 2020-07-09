@@ -1,14 +1,13 @@
 import React from 'react';
 import { Theme, ThemeContainer } from '../Themes/types';
 import { useFela, CssFelaStyle } from 'react-fela';
-import emptyRuleFn from '../utils/emptyRuleFn';
-import { BoxProps, boxRule } from '../utils/box';
+import { BoxProps, boxRule } from '../utils/boxRule';
+import { styleRule, StyleProps } from '../utils/styleRule';
 
-interface Props extends BoxProps {
+interface Props extends BoxProps, StyleProps<Props> {
     children: React.ReactNode;
     as?: keyof React.ReactHTML;
     size?: keyof ThemeContainer;
-    style?: CssFelaStyle<Theme, Omit<Props, 'style'>>;
 }
 
 const rule: CssFelaStyle<Theme, Props> = (state) => ({
@@ -18,9 +17,9 @@ const rule: CssFelaStyle<Theme, Props> = (state) => ({
     maxWidth: state.theme.container[state.size || 'lg'],
 });
 
-export default function Container({ style = emptyRuleFn, ...props }: Props) {
+export default function Container(props: Props) {
     const Element = props.as || 'div';
     const { css } = useFela<Theme, Props>(props);
 
-    return <Element className={css(boxRule, rule, style)}>{props.children}</Element>;
+    return <Element className={css(boxRule, rule, styleRule(props))}>{props.children}</Element>;
 }
