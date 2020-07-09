@@ -2,6 +2,7 @@ import { CssFelaStyle } from 'react-fela';
 import { Theme } from '../theme/types';
 import * as CSS from 'csstype';
 import { TLength } from '../types';
+import getFromTheme from './getFromTheme';
 
 export interface BoxProps {
     m?: CSS.MarginProperty<TLength>;
@@ -41,17 +42,6 @@ export interface BoxProps {
     color?: CSS.ColorProperty;
     borderColor?: CSS.BorderColorProperty;
 }
-
-const getFromTheme = (val: string | number | undefined, prop: keyof Theme, theme: Theme) => {
-    if (!val) return val;
-    if (typeof val === 'number') return val;
-
-    const result = theme[prop][val];
-
-    if (!result) return val;
-
-    return result;
-};
 
 export const boxRule: CssFelaStyle<Theme, BoxProps> = (state) => {
     const margin = getFromTheme(state.m, 'spacing', state.theme);

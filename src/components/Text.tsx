@@ -5,27 +5,32 @@ import { IStyle } from 'fela';
 import { BoxProps, boxRule } from '../utils/boxRule';
 import { StyleProps, styleRule } from '../utils/styleRule';
 import { VariantProps, variantRule } from '../utils/variantRule';
+import getFromTheme from '../utils/getFromTheme';
 
 interface Props extends BoxProps, StyleProps<Props>, VariantProps {
     children: React.ReactNode;
     family?: keyof ThemeFontFamily;
     size?: keyof ThemeTypographyScale;
+    letterSpacing?: keyof ThemeTypographyScale;
+    lineHeight?: keyof ThemeTypographyScale;
     weight?: keyof ThemeFontWeight;
     textAlign?: IStyle['textAlign'];
 }
 
 const rule: CssFelaStyle<Theme, Props> = (state) => {
-    const size = state.size || 'p';
-    const weight = state.weight || 'regular';
-    const isHeader = !['p', 'small'].includes(size);
-    const family = state.family || (isHeader ? 'heading' : 'body');
+    const fontSize = getFromTheme(state.size || 'p', 'fontSize', state.theme);
+    const fontWeight = getFromTheme(state.weight || 'regular', 'fontWeight', state.theme);
+    const isHeader = !['p', 'small'].includes(fontSize);
+    const fontFamily = getFromTheme(state.family || (isHeader ? 'heading' : 'body'), 'fontFamily', state.theme);
+    const letterSpacing = getFromTheme(state.letterSpacing || state.size, 'letterSpacing', state.theme);
+    const lineHeight = getFromTheme(state.lineHeight || state.size, 'lineHeight', state.theme);
 
     return {
-        fontFamily: state.theme.font.family[family],
-        fontSize: state.theme.font.size[size],
-        letterSpacing: state.theme.font.letterSpacing[size],
-        lineHeight: state.theme.font.lineHeight[size],
-        fontWeight: state.theme.font.weight[weight],
+        fontFamily,
+        fontSize,
+        letterSpacing,
+        lineHeight,
+        fontWeight,
         textAlign: state.textAlign,
     };
 };

@@ -15,7 +15,7 @@ interface Props extends BoxProps, StyleProps<Props>, VariantProps {
 const rule: CssFelaStyle<Theme, Props> = (state) => ({
     backgroundColor: state.theme.color.primary,
     color: state.theme.color.white,
-    fontWeight: state.theme.font.weight.medium,
+    fontWeight: state.theme.fontWeight.medium,
     padding: '8px 16px',
     appearance: 'none',
     outline: 0,

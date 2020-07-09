@@ -323,7 +323,7 @@ textarea {
 `);
 
 const globalStyle: IStyle = {
-    fontFamily: baseTheme.font.family.body,
+    fontFamily: baseTheme.fontFamily.body,
 };
 
 renderer.renderStatic(globalStyle, 'html, body, p, button, input');

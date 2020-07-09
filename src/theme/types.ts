@@ -68,12 +68,10 @@ export interface Theme {
     container: ThemeContainer;
     spacing: ThemeSpacing;
     color: ThemeColor;
-    font: {
-        size: ThemeTypographyScale;
-        lineHeight: ThemeTypographyScale;
-        letterSpacing: ThemeTypographyScale;
-        family: ThemeFontFamily;
-        weight: ThemeFontWeight;
-    };
+    fontSize: ThemeTypographyScale;
+    lineHeight: ThemeTypographyScale;
+    letterSpacing: ThemeTypographyScale;
+    fontFamily: ThemeFontFamily;
+    fontWeight: ThemeFontWeight;
     variants: Variants;
 }
