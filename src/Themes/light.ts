@@ -4,7 +4,7 @@ import baseTheme from './base';
 const lightTheme: Theme = {
     ...baseTheme,
     color: {
-        primary: '#0085e4',
+        primary: '#3B60E4',
         secondary: 'orange',
         white: '#fff',
         black: '#000',

@@ -1,14 +1,17 @@
+import * as CSS from 'csstype';
+import { TLength } from '../types';
+
 export interface ThemeColor {
-    primary: string;
-    secondary: string;
-    white: string;
-    black: string;
+    primary: CSS.ColorProperty;
+    secondary: CSS.ColorProperty;
+    white: CSS.ColorProperty;
+    black: CSS.ColorProperty;
 }
 
 export interface ThemeFontFamily {
-    heading: string;
-    body: string;
-    code: string;
+    heading: CSS.FontFamilyProperty;
+    body: CSS.FontFamilyProperty;
+    code: CSS.FontFamilyProperty;
 }
 
 export interface ThemeScreens {
@@ -20,43 +23,43 @@ export interface ThemeScreens {
 }
 
 export interface ThemeSpacing {
-    '0': string;
-    '1': string;
-    '2': string;
-    '3': string;
-    '4': string;
-    '5': string;
-    '6': string;
-    '7': string;
-    '8': string;
-    '9': string;
-    '10': string;
-    '11': string;
-    '12': string;
-    [key: string]: string;
+    '0': CSS.PaddingProperty<TLength> | CSS.MarginProperty<TLength>;
+    '1': CSS.PaddingProperty<TLength> | CSS.MarginProperty<TLength>;
+    '2': CSS.PaddingProperty<TLength> | CSS.MarginProperty<TLength>;
+    '3': CSS.PaddingProperty<TLength> | CSS.MarginProperty<TLength>;
+    '4': CSS.PaddingProperty<TLength> | CSS.MarginProperty<TLength>;
+    '5': CSS.PaddingProperty<TLength> | CSS.MarginProperty<TLength>;
+    '6': CSS.PaddingProperty<TLength> | CSS.MarginProperty<TLength>;
+    '7': CSS.PaddingProperty<TLength> | CSS.MarginProperty<TLength>;
+    '8': CSS.PaddingProperty<TLength> | CSS.MarginProperty<TLength>;
+    '9': CSS.PaddingProperty<TLength> | CSS.MarginProperty<TLength>;
+    '10': CSS.PaddingProperty<TLength> | CSS.MarginProperty<TLength>;
+    '11': CSS.PaddingProperty<TLength> | CSS.MarginProperty<TLength>;
+    '12': CSS.PaddingProperty<TLength> | CSS.MarginProperty<TLength>;
+    [key: string]: CSS.PaddingProperty<TLength>;
 }
 
 export interface ThemeFontWeight {
-    thin: number;
-    extraLight: number;
-    light: number;
-    regular: number;
-    medium: number;
-    semibold: number;
-    bold: number;
-    extraBold: number;
-    black: number;
+    thin: CSS.FontWeightProperty;
+    extraLight: CSS.FontWeightProperty;
+    light: CSS.FontWeightProperty;
+    regular: CSS.FontWeightProperty;
+    medium: CSS.FontWeightProperty;
+    semibold: CSS.FontWeightProperty;
+    bold: CSS.FontWeightProperty;
+    extraBold: CSS.FontWeightProperty;
+    black: CSS.FontWeightProperty;
 }
 
 export interface ThemeTypographyScale {
-    h1: string | number;
-    h2: string | number;
-    h3: string | number;
-    h4: string | number;
-    h5: string | number;
-    h6: string | number;
-    p: string | number;
-    small: string | number;
+    h1: CSS.FontSizeProperty<TLength>;
+    h2: CSS.FontSizeProperty<TLength>;
+    h3: CSS.FontSizeProperty<TLength>;
+    h4: CSS.FontSizeProperty<TLength>;
+    h5: CSS.FontSizeProperty<TLength>;
+    h6: CSS.FontSizeProperty<TLength>;
+    p: CSS.FontSizeProperty<TLength>;
+    small: CSS.FontSizeProperty<TLength>;
 }
 
 export interface Theme {
