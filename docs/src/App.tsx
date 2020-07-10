@@ -1,8 +1,6 @@
 import React from 'react';
-import { Button, Silicon, Text, Flex, Link } from '../../src';
+import { Button, Silicon, Text, Flex, Link, Image, Container, Input } from '../../src';
 import Nav from './Nav';
-import Image from '../../src/components/Image';
-import Container from '../../src/components/Container';
 
 export default function App() {
     return (
@@ -105,6 +103,16 @@ export default function App() {
 
                 <Flex as="section" direction="column" mt={48}>
                     <Text size="h3" weight="bold" mb={12}>
+                        Form
+                    </Text>
+
+                    <Flex>
+                        <Input placeholder="Placeholder value" defaultValue="Input value" />
+                    </Flex>
+                </Flex>
+
+                <Flex as="section" direction="column" mt={48}>
+                    <Text size="h3" weight="bold" mb={12}>
                         Buttons
                     </Text>
 
@@ -124,7 +132,7 @@ export default function App() {
                     <Flex mt={12}>
                         <Button
                             kind="secondary"
-                            style={(state) => ({
+                            css={(state) => ({
                                 backgroundColor: 'red',
                                 marginTop: 100,
                                 fontWeight: state.theme.fontWeight.black,
@@ -142,7 +150,7 @@ export default function App() {
                     </Text>
 
                     <Flex mt={12}>
-                        <Text size="h1" style={{ fontWeight: 800, fontSize: 11 }}>
+                        <Text size="h1" css={{ fontWeight: 800, fontSize: 11 }}>
                             Heading 1
                         </Text>
                     </Flex>
