@@ -8,14 +8,14 @@ import { VariantProps, variantRule } from '../utils/variantRule';
 
 interface FlexProps {
     children: React.ReactNode;
-    as?: keyof React.ReactHTML;
+    as?: React.ElementType;
     direction?: IStyle['flexDirection'];
     wrap?: IStyle['flexWrap'];
     align?: IStyle['alignItems'];
     justify?: IStyle['justifyContent'];
 }
 
-type Props = FlexProps & BoxProps & CSSProps<Props> & VariantProps & React.HTMLProps<keyof React.ReactHTML>;
+type Props = FlexProps & BoxProps & CSSProps<Props> & VariantProps & React.HTMLProps<React.ElementType>;
 
 const rule: CssFelaStyle<Theme, Props> = (state) => ({
     display: 'flex',
@@ -25,9 +25,19 @@ const rule: CssFelaStyle<Theme, Props> = (state) => ({
     justifyContent: state.justify,
 });
 
-export default function Flex(props: Props) {
+function FlexComponent(props: Props, forwardedRef: React.Ref<React.ElementType>) {
     const Element = props.as || 'div';
     const { css } = useFela<Theme, Props>(props);
 
-    return <Element className={css(boxRule, rule, variantRule, styleRule)}>{props.children}</Element>;
+    return (
+        <Element ref={forwardedRef} className={css(boxRule, rule, variantRule, styleRule)}>
+            {props.children}
+        </Element>
+    );
 }
+
+const Flex = React.forwardRef(FlexComponent);
+
+Flex.displayName = 'Flex';
+
+export default Flex;

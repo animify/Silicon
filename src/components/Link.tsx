@@ -45,7 +45,7 @@ const rule: CssFelaStyle<Theme, Props> = (state) => {
     };
 };
 
-export default function Link(props: Props) {
+function LinkComponent(props: Props) {
     const { css } = useFela<Theme, Props>(props);
 
     return (
@@ -54,3 +54,9 @@ export default function Link(props: Props) {
         </a>
     );
 }
+
+const Link = React.forwardRef(LinkComponent);
+
+Link.displayName = 'Link';
+
+export default Link;

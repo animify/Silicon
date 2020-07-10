@@ -22,7 +22,7 @@ const rule: CssFelaStyle<Theme, Props> = (state) => ({
     cursor: state.loading || state ? 'default' : undefined,
 });
 
-export default function Input(props: Props) {
+function InputComponent(props: Props) {
     const { css } = useFela<Theme, Props>(props);
 
     return (
@@ -34,3 +34,9 @@ export default function Input(props: Props) {
         />
     );
 }
+
+const Input = React.forwardRef(InputComponent);
+
+Input.displayName = 'Input';
+
+export default Input;

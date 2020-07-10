@@ -32,12 +32,22 @@ const rule: CssFelaStyle<Theme, Props> = (state) => ({
     },
 });
 
-export default function Button(props: Props) {
+function ButtonComponent(props: Props, forwardedRef: React.Ref<HTMLButtonElement>) {
     const { css } = useFela<Theme, Props>(props);
 
     return (
-        <button className={css(boxRule, rule, variantRule, styleRule)} disabled={props.loading || props.disabled}>
+        <button
+            ref={forwardedRef}
+            className={css(boxRule, rule, variantRule, styleRule)}
+            disabled={props.loading || props.disabled}
+        >
             {props.children}
         </button>
     );
 }
+
+const Button = React.forwardRef(ButtonComponent);
+
+Button.displayName = 'Button';
+
+export default Button;

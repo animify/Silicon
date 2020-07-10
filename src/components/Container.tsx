@@ -7,11 +7,11 @@ import { VariantProps, variantRule } from '../utils/variantRule';
 
 interface ContainerProps {
     children: React.ReactNode;
-    as?: keyof React.ReactHTML;
+    as?: React.ElementType;
     size?: keyof ThemeContainer;
 }
 
-type Props = ContainerProps & BoxProps & CSSProps<Props> & VariantProps & React.HTMLProps<keyof React.ReactHTML>;
+type Props = ContainerProps & BoxProps & CSSProps<Props> & VariantProps & React.HTMLProps<React.ElementType>;
 
 const rule: CssFelaStyle<Theme, Props> = (state) => ({
     width: '100%',
@@ -20,9 +20,19 @@ const rule: CssFelaStyle<Theme, Props> = (state) => ({
     maxWidth: state.theme.container[state.size || 'lg'],
 });
 
-export default function Container(props: Props) {
+function ContainerComponent(props: Props, forwardedRef: React.Ref<React.ElementType>) {
     const Element = props.as || 'div';
     const { css } = useFela<Theme, Props>(props);
 
-    return <Element className={css(boxRule, rule, variantRule, styleRule)}>{props.children}</Element>;
+    return (
+        <Element ref={forwardedRef} className={css(boxRule, rule, variantRule, styleRule)}>
+            {props.children}
+        </Element>
+    );
 }
+
+const Container = React.forwardRef(ContainerComponent);
+
+Container.displayName = 'Container';
+
+export default Container;

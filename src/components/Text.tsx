@@ -41,9 +41,15 @@ const rule: CssFelaStyle<Theme, Props> = (state) => {
     };
 };
 
-export default function Text(props: Props) {
+function TextComponent(props: Props) {
     const { css } = useFela<Theme, Props>(props);
     const Element = props.size || 'p';
 
     return <Element className={css(boxRule, rule, variantRule, styleRule)}>{props.children}</Element>;
 }
+
+const Text = React.forwardRef(TextComponent);
+
+Text.displayName = 'Text';
+
+export default Text;
