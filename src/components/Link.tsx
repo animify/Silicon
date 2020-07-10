@@ -45,11 +45,11 @@ const rule: CssFelaStyle<Theme, Props> = (state) => {
     };
 };
 
-function LinkComponent(props: Props) {
+function LinkComponent(props: Props, forwardedRef: React.Ref<HTMLAnchorElement>) {
     const { css } = useFela<Theme, Props>(props);
 
     return (
-        <a className={css(boxRule, rule, variantRule, styleRule)} href={props.href}>
+        <a ref={forwardedRef} className={css(boxRule, rule, variantRule, styleRule)} href={props.href}>
             {props.children}
         </a>
     );

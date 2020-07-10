@@ -22,11 +22,12 @@ const rule: CssFelaStyle<Theme, Props> = (state) => ({
     cursor: state.loading || state ? 'default' : undefined,
 });
 
-function InputComponent(props: Props) {
+function InputComponent(props: Props, forwardedRef: React.Ref<HTMLInputElement>) {
     const { css } = useFela<Theme, Props>(props);
 
     return (
         <input
+            ref={forwardedRef}
             className={css(boxRule, rule, variantRule, styleRule)}
             disabled={props.loading || props.disabled}
             value={props.value}

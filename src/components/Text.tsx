@@ -9,6 +9,7 @@ import getFromTheme from '../utils/getFromTheme';
 
 interface TextProps {
     children: React.ReactNode;
+    as?: React.ElementType;
     family?: keyof ThemeFontFamily;
     size?: keyof ThemeTypographyScale;
     letterSpacing?: keyof ThemeTypographyScale;
@@ -41,11 +42,15 @@ const rule: CssFelaStyle<Theme, Props> = (state) => {
     };
 };
 
-function TextComponent(props: Props) {
+function TextComponent(props: Props, forwardedRef: React.Ref<React.ElementType>) {
     const { css } = useFela<Theme, Props>(props);
-    const Element = props.size || 'p';
+    const Element = props.as || props.size || 'p';
 
-    return <Element className={css(boxRule, rule, variantRule, styleRule)}>{props.children}</Element>;
+    return (
+        <Element ref={forwardedRef} className={css(boxRule, rule, variantRule, styleRule)}>
+            {props.children}
+        </Element>
+    );
 }
 
 const Text = React.forwardRef(TextComponent);

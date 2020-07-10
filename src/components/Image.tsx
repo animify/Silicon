@@ -13,10 +13,17 @@ type Props = ImageProps & BoxProps & CSSProps<Props> & VariantProps & React.HTML
 
 const rule: CssFelaStyle<Theme, Props> = () => ({});
 
-function ImageComponent(props: Props) {
+function ImageComponent(props: Props, forwardedRef: React.Ref<HTMLImageElement>) {
     const { css } = useFela<Theme, Props>(props);
 
-    return <img className={css(boxRule, rule, variantRule, styleRule)} alt={props.alt} src={props.src} />;
+    return (
+        <img
+            ref={forwardedRef}
+            className={css(boxRule, rule, variantRule, styleRule)}
+            alt={props.alt}
+            src={props.src}
+        />
+    );
 }
 
 const Image = React.forwardRef(ImageComponent);
