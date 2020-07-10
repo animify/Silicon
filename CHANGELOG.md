@@ -1,3 +1,12 @@
+## [Version 0.0.8](https://github.com/animify/Silicon/releases/tag/v0.0.8) (2020-7-10)
+
+### Bug fixes
+
+- update build script: [`eb25318`](https://github.com/animify/Silicon/commit/eb25318)
+- update build script: [`2c5fbb7`](https://github.com/animify/Silicon/commit/2c5fbb7)
+
+[...full changes](https://github.com/animify/Silicon/compare/v0.0.7...v0.0.8)
+
 ## [Version 0.0.7](https://github.com/animify/Silicon/releases/tag/v0.0.7) (2020-7-10)
 
 ### Bug fixes
