@@ -47,15 +47,15 @@ export const boxRule: CssFelaStyle<Theme, BoxProps> = (state) => {
     const margin = getFromTheme(state.m, 'spacing', state.theme);
     const padding = getFromTheme(state.p, 'spacing', state.theme);
 
-    const marginTop = getFromTheme(state.mt, 'spacing', state.theme) ?? state.mt ?? state.my;
-    const marginBottom = getFromTheme(state.mb, 'spacing', state.theme) ?? state.mb ?? state.my;
-    const marginLeft = getFromTheme(state.ml, 'spacing', state.theme) ?? state.ml ?? state.mx;
-    const marginRight = getFromTheme(state.mr, 'spacing', state.theme) ?? state.mr ?? state.mx;
+    const marginTop = getFromTheme(state.mt ?? state.my, 'spacing', state.theme);
+    const marginBottom = getFromTheme(state.mb ?? state.my, 'spacing', state.theme);
+    const marginLeft = getFromTheme(state.ml ?? state.mx, 'spacing', state.theme);
+    const marginRight = getFromTheme(state.mr ?? state.mx, 'spacing', state.theme);
 
-    const paddingTop = getFromTheme(state.pt, 'spacing', state.theme) ?? state.pt ?? state.py;
-    const paddingBottom = getFromTheme(state.pb, 'spacing', state.theme) ?? state.pb ?? state.py;
-    const paddingLeft = getFromTheme(state.pl, 'spacing', state.theme) ?? state.pl ?? state.px;
-    const paddingRight = getFromTheme(state.pr, 'spacing', state.theme) ?? state.pr ?? state.px;
+    const paddingTop = getFromTheme(state.pt ?? state.py, 'spacing', state.theme);
+    const paddingBottom = getFromTheme(state.pb ?? state.py, 'spacing', state.theme);
+    const paddingLeft = getFromTheme(state.pl ?? state.px, 'spacing', state.theme);
+    const paddingRight = getFromTheme(state.pr ?? state.px, 'spacing', state.theme);
 
     const color = getFromTheme(state.color, 'color', state.theme);
     const backgroundColor = getFromTheme(state.bg, 'color', state.theme);
