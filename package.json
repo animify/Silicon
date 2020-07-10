@@ -12,11 +12,12 @@
     "build"
   ],
   "scripts": {
-    "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
-    "build": "microbundle --jsx React.createElement",
     "docs:dev": "NODE_ENV=development parcel docs/public/index.html",
     "docs:build": "NODE_ENV=production parcel build docs/public/index.html --no-source-maps --experimental-scope-hoisting",
-    "package": "yarn build && changelog && git push --follow-tags && yarn publish --access public --non-interactive"
+    "package": "yarn build && changelog && git push --follow-tags && yarn publish --access public --non-interactive",
+    "build": "microbundle --jsx React.createElement",
+    "release": "sh ./build.sh publish",
+    "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix"
   },
   "dependencies": {
     "fela": "^11.3.0",

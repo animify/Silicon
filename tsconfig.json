@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
     "lib": ["dom", "es2015", "es2016", "es2017", "esnext"],
-    "module": "ESNext",
-    "target": "ESNext",
+    "module": "esnext",
+    "target": "es6",
     "sourceMap": false,
     "allowJs": false,
     "noUnusedLocals": true,
