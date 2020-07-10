@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, Silicon, Text, Flex, Link, Image, Container, Input } from '../../src';
 import Nav from './Nav';
+import Example from './Example';
 
 export default function App() {
     return (
@@ -12,31 +13,30 @@ export default function App() {
                     <Text size="h3" weight="bold" mb={12}>
                         Font Sizes
                     </Text>
-
-                    <Flex mt={12}>
+                    <Example>
                         <Text size="h1">Heading 1</Text>
-                    </Flex>
-                    <Flex mt={12}>
+                    </Example>
+                    <Example>
                         <Text size="h2">Heading 2</Text>
-                    </Flex>
-                    <Flex mt={12}>
+                    </Example>
+                    <Example>
                         <Text size="h3">Heading 3</Text>
-                    </Flex>
-                    <Flex mt={12}>
+                    </Example>
+                    <Example>
                         <Text size="h4">Heading 4</Text>
-                    </Flex>
-                    <Flex mt={12}>
+                    </Example>
+                    <Example>
                         <Text size="h5">Heading 5</Text>
-                    </Flex>
-                    <Flex mt={12}>
+                    </Example>
+                    <Example>
                         <Text size="h6">Heading 6</Text>
-                    </Flex>
-                    <Flex mt={12}>
+                    </Example>
+                    <Example>
                         <Text size="p">Paragraph</Text>
-                    </Flex>
-                    <Flex mt={12}>
+                    </Example>
+                    <Example>
                         <Text size="small">Small</Text>
-                    </Flex>
+                    </Example>
                 </Flex>
 
                 <Flex as="section" direction="column" mt={48}>
@@ -44,41 +44,41 @@ export default function App() {
                         Font Weights
                     </Text>
 
-                    <Flex mt={12}>
+                    <Example>
                         <Text weight="thin">Thin</Text>
-                    </Flex>
+                    </Example>
 
-                    <Flex mt={12}>
+                    <Example>
                         <Text weight="extraLight">Extra Light</Text>
-                    </Flex>
+                    </Example>
 
-                    <Flex mt={12}>
+                    <Example>
                         <Text weight="light">Light</Text>
-                    </Flex>
+                    </Example>
 
-                    <Flex mt={12}>
+                    <Example>
                         <Text weight="regular">Regular</Text>
-                    </Flex>
+                    </Example>
 
-                    <Flex mt={12}>
+                    <Example>
                         <Text weight="medium">Medium</Text>
-                    </Flex>
+                    </Example>
 
-                    <Flex mt={12}>
+                    <Example>
                         <Text weight="semibold">Semibold</Text>
-                    </Flex>
+                    </Example>
 
-                    <Flex mt={12}>
+                    <Example>
                         <Text weight="bold">Bold</Text>
-                    </Flex>
+                    </Example>
 
-                    <Flex mt={12}>
+                    <Example>
                         <Text weight="extraBold">Extra Bold</Text>
-                    </Flex>
+                    </Example>
 
-                    <Flex mt={12}>
+                    <Example>
                         <Text weight="black">Black</Text>
-                    </Flex>
+                    </Example>
                 </Flex>
 
                 <Flex as="section" direction="column" mt={48}>
@@ -86,11 +86,13 @@ export default function App() {
                         Images
                     </Text>
 
-                    <Image
-                        src="https://camo.githubusercontent.com/6062000b0601afb16c465372b15edd8cb78435fd/68747470733a2f2f692e696d6775722e636f6d2f584b54556754382e706e67"
-                        alt="Some image"
-                        maxWidth={300}
-                    />
+                    <Example>
+                        <Image
+                            src="https://camo.githubusercontent.com/6062000b0601afb16c465372b15edd8cb78435fd/68747470733a2f2f692e696d6775722e636f6d2f584b54556754382e706e67"
+                            alt="Some image"
+                            maxWidth={300}
+                        />
+                    </Example>
                 </Flex>
 
                 <Flex as="section" direction="column" mt={48}>
@@ -98,7 +100,9 @@ export default function App() {
                         Link
                     </Text>
 
-                    <Link href="https://silicon.gg">Silicon UI</Link>
+                    <Example>
+                        <Link href="https://silicon.gg">Silicon UI</Link>
+                    </Example>
                 </Flex>
 
                 <Flex as="section" direction="column" mt={48}>
@@ -106,9 +110,9 @@ export default function App() {
                         Form
                     </Text>
 
-                    <Flex>
+                    <Example>
                         <Input placeholder="Placeholder value" defaultValue="Input value" />
-                    </Flex>
+                    </Example>
                 </Flex>
 
                 <Flex as="section" direction="column" mt={48}>
@@ -116,20 +120,20 @@ export default function App() {
                         Buttons
                     </Text>
 
-                    <Flex>
+                    <Example>
                         <Button kind="primary">Primary Button</Button>
-                    </Flex>
-                    <Flex mt={12}>
+                    </Example>
+                    <Example>
                         <Button kind="secondary" disabled={true}>
                             Disabled
                         </Button>
-                    </Flex>
-                    <Flex mt={12}>
+                    </Example>
+                    <Example>
                         <Button kind="secondary" loading={true}>
                             Loading
                         </Button>
-                    </Flex>
-                    <Flex mt={12}>
+                    </Example>
+                    <Example>
                         <Button
                             kind="secondary"
                             css={(state) => ({
@@ -141,7 +145,7 @@ export default function App() {
                         >
                             Improve
                         </Button>
-                    </Flex>
+                    </Example>
                 </Flex>
 
                 <Flex as="section" direction="column" mt={48}>
@@ -149,11 +153,11 @@ export default function App() {
                         Style Overrides
                     </Text>
 
-                    <Flex mt={12}>
+                    <Example>
                         <Text size="h1" css={{ fontWeight: 800, fontSize: 11 }}>
                             Heading 1
                         </Text>
-                    </Flex>
+                    </Example>
                 </Flex>
 
                 <Flex as="section" direction="column" mt={48}>
@@ -161,11 +165,11 @@ export default function App() {
                         Variants
                     </Text>
 
-                    <Flex>
+                    <Example>
                         <Flex p={32} variant="card">
                             Card variant
                         </Flex>
-                    </Flex>
+                    </Example>
                 </Flex>
 
                 <Flex as="section" direction="column" mt={48}>
@@ -173,51 +177,51 @@ export default function App() {
                         Using Box props
                     </Text>
 
-                    <Flex>
+                    <Example>
                         <Flex p={32} bg="primary">
                             Primary bg
                         </Flex>
-                    </Flex>
+                    </Example>
 
-                    <Flex>
+                    <Example>
                         <Flex p={32} bg="secondary" color="white">
                             White color
                         </Flex>
-                    </Flex>
+                    </Example>
 
-                    <Flex>
+                    <Example>
                         <Flex m="3" bg="secondary" color="white">
                             Margin 12
                         </Flex>
-                    </Flex>
+                    </Example>
 
-                    <Flex>
+                    <Example>
                         <Flex p="6" bg="secondary" color="white">
                             Padding 24
                         </Flex>
-                    </Flex>
+                    </Example>
 
-                    <Flex>
+                    <Example>
                         <Flex mb="1" ml="2" mt="3" mr="4" bg="secondary" color="white">
                             Margin Custom
                         </Flex>
-                    </Flex>
+                    </Example>
 
-                    <Flex>
+                    <Example>
                         <Flex pb="1" pl="2" pt="3" pr="4" bg="secondary" color="white">
                             Padding Custom
                         </Flex>
-                    </Flex>
+                    </Example>
 
-                    <Flex>
+                    <Example>
                         <Text family="code">Family Custom</Text>
-                    </Flex>
+                    </Example>
 
-                    <Flex>
+                    <Example>
                         <Text size="h3" letterSpacing="small">
                             Size Custom
                         </Text>
-                    </Flex>
+                    </Example>
                 </Flex>
             </Container>
         </Silicon>
