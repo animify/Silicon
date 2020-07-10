@@ -21,7 +21,7 @@ type Props = TextProps &
     BoxProps &
     CSSProps<Props> &
     VariantProps &
-    React.HTMLProps<HTMLHeadingElement | HTMLParagraphElement>;
+    Omit<React.HTMLProps<HTMLHeadingElement | HTMLParagraphElement>, 'size'>;
 
 const rule: CssFelaStyle<Theme, Props> = (state) => {
     const fontSize = getFromTheme(state.size || 'p', 'fontSize', state.theme);

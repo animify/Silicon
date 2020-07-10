@@ -12,7 +12,6 @@ function DELETE_TEMP {
 
 function BUILD {
     yarn build
-    sleep 3s
 }
 
 function PUBLISH {
@@ -23,7 +22,6 @@ function COPY {
     mv ./build/src/* ./build
     rm -rf ./build/src
     rm -rf ./build/docs
-    sleep 3s
 }
 
 function CLEAN {
