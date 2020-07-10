@@ -1,18 +1,18 @@
 import { CssFelaStyle } from 'react-fela';
 import { Theme } from '../theme/types';
 
-export interface StyleProps<Props = {}> {
-    style?: CssFelaStyle<Theme, Omit<Props, 'style'>>;
+export interface CSSProps<Props = {}> {
+    css?: CssFelaStyle<Theme, Props>;
 }
 
 const emptyRuleFn: CssFelaStyle<{}, {}> = () => ({});
 
-export const styleRule: CssFelaStyle<Theme, StyleProps> = (state) => {
-    const style = state.style || emptyRuleFn;
+export const styleRule: CssFelaStyle<Theme, CSSProps> = (state) => {
+    const css = state.css || emptyRuleFn;
 
-    if (typeof style === 'function') {
-        return style(state);
+    if (typeof css === 'function') {
+        return css(state);
     }
 
-    return style;
+    return css;
 };
