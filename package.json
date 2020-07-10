@@ -52,6 +52,13 @@
     "prettier": "^2.0.4",
     "ts-node": "^8.8.2"
   },
+  "peerDependencies": {
+    "react": ">=15"
+  },
+  "browserslist": [
+    "last 1 version",
+    "> 1%"
+  ],
   "lint-staged": {
     "*.{js,ts,tsx}": [
       "eslint --fix"
