@@ -30,9 +30,10 @@
     "fela-plugin-prefixer": "^11.3.0",
     "fela-plugin-typescript": "^11.3.0",
     "fela-plugin-unit": "^11.3.0",
-    "jsx-to-string": "^1.4.0",
+    "prism-react-renderer": "^1.1.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-element-to-jsx-string": "^14.3.1",
     "react-fela": "^11.3.0",
     "typescript": "^3.9.6"
   },
