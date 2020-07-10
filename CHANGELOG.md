@@ -1,3 +1,11 @@
+## [Version 0.0.10](https://github.com/animify/Silicon/releases/tag/v0.0.10) (2020-7-10)
+
+### Bug fixes
+
+- fix Text component props: [`5a16a76`](https://github.com/animify/Silicon/commit/5a16a76)
+
+[...full changes](https://github.com/animify/Silicon/compare/v0.0.9...v0.0.10)
+
 ## [Version 0.0.9](https://github.com/animify/Silicon/releases/tag/v0.0.9) (2020-7-10)
 
 ### Bug fixes
