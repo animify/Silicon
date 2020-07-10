@@ -1,3 +1,11 @@
+## [Version 0.0.7](https://github.com/animify/Silicon/releases/tag/v0.0.7) (2020-7-10)
+
+### Bug fixes
+
+- fix publishing and building: [`c80c70d`](https://github.com/animify/Silicon/commit/c80c70d)
+
+[...full changes](https://github.com/animify/Silicon/compare/v0.0.6...v0.0.7)
+
 ## [Version 0.0.4](https://github.com/animify/Silicon/releases/tag/v0.0.4) (2020-7-10)
 
 ### New features
