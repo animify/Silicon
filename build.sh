@@ -19,11 +19,9 @@ function PUBLISH {
 }
 
 function COPY {
-    cd build/src
-    mv * ../
-    cd ../
-    rm -rf build/src
-    rm -rf build/docs
+    mv ./build/src/* ./build
+    rm -rf ./build/src
+    rm -rf ./build/docs
 }
 
 function CLEAN {
@@ -36,9 +34,10 @@ BUILD
 COPY
 PUBLISH
 CLEAN
-echo -e "Build & publish completed."
+echo "Silicon UI: Build & publish completed."
 elif [ $# -eq 0 ]; then
 DELETE_TEMP
 BUILD
-echo -e "Build completed."
+COPY
+echo "Silicon UI: Build completed."
 fi
