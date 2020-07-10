@@ -1,3 +1,11 @@
+## [Version 0.0.9](https://github.com/animify/Silicon/releases/tag/v0.0.9) (2020-7-10)
+
+### Bug fixes
+
+- update build script: [`f99abe3`](https://github.com/animify/Silicon/commit/f99abe3)
+
+[...full changes](https://github.com/animify/Silicon/compare/v0.0.8...v0.0.9)
+
 ## [Version 0.0.8](https://github.com/animify/Silicon/releases/tag/v0.0.8) (2020-7-10)
 
 ### Bug fixes
