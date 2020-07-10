@@ -3,10 +3,10 @@ import { Theme } from '../theme/types';
 import { useFela, CssFelaStyle } from 'react-fela';
 import { IStyle } from 'fela';
 import { BoxProps, boxRule } from '../utils/boxRule';
-import { StyleProps, styleRule } from '../utils/styleRule';
+import { CSSProps, styleRule } from '../utils/styleRule';
 import { VariantProps, variantRule } from '../utils/variantRule';
 
-interface Props extends BoxProps, StyleProps<Props>, VariantProps {
+interface FlexProps {
     children: React.ReactNode;
     as?: keyof React.ReactHTML;
     direction?: IStyle['flexDirection'];
@@ -14,6 +14,8 @@ interface Props extends BoxProps, StyleProps<Props>, VariantProps {
     align?: IStyle['alignItems'];
     justify?: IStyle['justifyContent'];
 }
+
+type Props = FlexProps & BoxProps & CSSProps<Props> & VariantProps & React.HTMLProps<keyof React.ReactHTML>;
 
 const rule: CssFelaStyle<Theme, Props> = (state) => ({
     display: 'flex',

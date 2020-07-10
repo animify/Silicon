@@ -2,15 +2,16 @@ import React from 'react';
 import { useFela, CssFelaStyle } from 'react-fela';
 import { Theme } from '../theme/types';
 import { BoxProps, boxRule } from '../utils/boxRule';
-import { StyleProps, styleRule } from '../utils/styleRule';
+import { CSSProps, styleRule } from '../utils/styleRule';
 import { VariantProps, variantRule } from '../utils/variantRule';
 
-interface Props extends BoxProps, StyleProps<Props>, VariantProps {
+interface InputProps {
     kind: 'primary' | 'secondary';
     children: React.ReactNode;
     loading?: boolean;
-    disabled?: boolean;
 }
+
+type Props = InputProps & BoxProps & CSSProps<Props> & VariantProps & React.HTMLProps<HTMLButtonElement>;
 
 const rule: CssFelaStyle<Theme, Props> = (state) => ({
     backgroundColor: state.theme.color.primary,
@@ -22,7 +23,6 @@ const rule: CssFelaStyle<Theme, Props> = (state) => ({
     border: 0,
     borderRadius: '4px',
     lineHeight: '24px',
-    letterSpacing: '0.4px',
     cursor: state.loading || state.disabled ? 'default' : 'pointer',
     nested: {
         ':hover:not(:disabled)': {},

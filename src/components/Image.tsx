@@ -2,13 +2,14 @@ import React from 'react';
 import { useFela, CssFelaStyle } from 'react-fela';
 import { Theme } from '../theme/types';
 import { BoxProps, boxRule } from '../utils/boxRule';
-import { styleRule, StyleProps } from '../utils/styleRule';
+import { styleRule, CSSProps } from '../utils/styleRule';
 import { VariantProps, variantRule } from '../utils/variantRule';
 
-interface Props extends BoxProps, StyleProps<Props>, VariantProps {
+interface ImageProps {
     src: string;
-    alt?: string;
 }
+
+type Props = ImageProps & BoxProps & CSSProps<Props> & VariantProps & React.HTMLProps<HTMLImageElement>;
 
 const rule: CssFelaStyle<Theme, Props> = () => ({});
 

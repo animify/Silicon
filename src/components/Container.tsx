@@ -2,14 +2,16 @@ import React from 'react';
 import { Theme, ThemeContainer } from '../theme/types';
 import { useFela, CssFelaStyle } from 'react-fela';
 import { BoxProps, boxRule } from '../utils/boxRule';
-import { styleRule, StyleProps } from '../utils/styleRule';
+import { styleRule, CSSProps } from '../utils/styleRule';
 import { VariantProps, variantRule } from '../utils/variantRule';
 
-interface Props extends BoxProps, StyleProps<Props>, VariantProps {
+interface ContainerProps {
     children: React.ReactNode;
     as?: keyof React.ReactHTML;
     size?: keyof ThemeContainer;
 }
+
+type Props = ContainerProps & BoxProps & CSSProps<Props> & VariantProps & React.HTMLProps<keyof React.ReactHTML>;
 
 const rule: CssFelaStyle<Theme, Props> = (state) => ({
     width: '100%',

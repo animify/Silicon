@@ -3,10 +3,10 @@ import { Theme } from '../theme/types';
 import { useFela, CssFelaStyle } from 'react-fela';
 import { IStyle } from 'fela';
 import { BoxProps, boxRule } from '../utils/boxRule';
-import { StyleProps, styleRule } from '../utils/styleRule';
+import { CSSProps, styleRule } from '../utils/styleRule';
 import { VariantProps, variantRule } from '../utils/variantRule';
 
-interface Props extends BoxProps, StyleProps<Props>, VariantProps {
+interface GridProps {
     children: React.ReactNode;
     as?: keyof React.ReactHTML;
     gridGap?: IStyle['gridGap'];
@@ -22,6 +22,8 @@ interface Props extends BoxProps, StyleProps<Props>, VariantProps {
     gridTemplateAreas?: IStyle['gridTemplateAreas'];
     gridArea?: IStyle['gridArea'];
 }
+
+type Props = GridProps & BoxProps & CSSProps<Props> & VariantProps & React.HTMLProps<keyof React.ReactHTML>;
 
 const rule: CssFelaStyle<Theme, Props> = (state) => ({
     gridGap: state.gridGap,

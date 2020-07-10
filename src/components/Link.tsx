@@ -3,13 +3,12 @@ import { ThemeTypographyScale, Theme, ThemeFontWeight, ThemeFontFamily } from '.
 import { useFela, CssFelaStyle } from 'react-fela';
 import { IStyle } from 'fela';
 import { BoxProps, boxRule } from '../utils/boxRule';
-import { StyleProps, styleRule } from '../utils/styleRule';
+import { CSSProps, styleRule } from '../utils/styleRule';
 import { VariantProps, variantRule } from '../utils/variantRule';
 import getFromTheme from '../utils/getFromTheme';
 
-interface Props extends BoxProps, StyleProps<Props>, VariantProps {
+interface LinkProps {
     children: React.ReactNode;
-    href?: string;
     family?: keyof ThemeFontFamily;
     size?: keyof ThemeTypographyScale;
     letterSpacing?: keyof ThemeTypographyScale;
@@ -17,6 +16,8 @@ interface Props extends BoxProps, StyleProps<Props>, VariantProps {
     weight?: keyof ThemeFontWeight;
     textAlign?: IStyle['textAlign'];
 }
+
+type Props = LinkProps & BoxProps & CSSProps<Props> & VariantProps & React.HTMLProps<HTMLAnchorElement>;
 
 const rule: CssFelaStyle<Theme, Props> = (state) => {
     const fontSize = getFromTheme(state.size || 'p', 'fontSize', state.theme);
