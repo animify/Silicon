@@ -11,7 +11,11 @@ interface ContainerProps {
     size?: keyof ThemeContainer;
 }
 
-type Props = ContainerProps & BoxProps & CSSProps<Props> & VariantProps & React.HTMLProps<React.ElementType>;
+type Props = ContainerProps &
+    BoxProps &
+    CSSProps<Props> &
+    VariantProps &
+    Omit<React.HTMLProps<React.ElementType>, 'size'>;
 
 const rule: CssFelaStyle<Theme, Props> = (state) => ({
     width: '100%',

@@ -13,6 +13,8 @@ interface FlexProps {
     wrap?: IStyle['flexWrap'];
     align?: IStyle['alignItems'];
     justify?: IStyle['justifyContent'];
+    grow?: IStyle['flexGrow'];
+    shrink?: IStyle['flexShrink'];
 }
 
 type Props = FlexProps & BoxProps & CSSProps<Props> & VariantProps & React.HTMLProps<React.ElementType>;
@@ -23,6 +25,8 @@ const rule: CssFelaStyle<Theme, Props> = (state) => ({
     flexWrap: state.wrap,
     alignItems: state.align,
     justifyContent: state.justify,
+    flexGrow: state.grow,
+    flexShrink: state.shrink,
 });
 
 function FlexComponent(props: Props, forwardedRef: React.Ref<React.ElementType>) {
