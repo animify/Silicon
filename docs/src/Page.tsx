@@ -11,7 +11,7 @@ export default function Page({ children }: Props) {
         <>
             <Nav />
 
-            <Container as="main" p={32} css={{ display: 'flex' }}>
+            <Container as="main" p="8" css={{ display: 'flex' }}>
                 <Sidebar />
 
                 <Container as="main" size="md">

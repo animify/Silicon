@@ -12,11 +12,18 @@ export default function Example({ children }: Props) {
     const childrenAsString = reactElementToJSXString(children, { tabStop: 3, maxInlineAttributesLineLength: 100 });
 
     return (
-        <Flex direction="column" mt="4" borderColor="black" css={{ border: '1px solid' }}>
+        <Flex direction="column" mt="4" borderColor="#D6DFE7" borderRadius={8} border="1px solid">
             <Flex p="5">{children}</Flex>
             <Highlight {...defaultProps} theme={exampleTheme} code={childrenAsString} language="jsx">
                 {({ style, tokens, getLineProps, getTokenProps }) => (
-                    <Flex as="pre" p="5" borderColor="black" borderTop="1px solid" overflowX="scroll" css={style}>
+                    <Flex
+                        as="pre"
+                        p="5"
+                        borderTop="1px solid #D6DFE7"
+                        borderRadius="0 0 8px 8px"
+                        overflowX="scroll"
+                        css={style}
+                    >
                         <code>
                             {tokens.map((line, i) => (
                                 <Text

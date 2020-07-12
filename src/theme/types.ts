@@ -9,6 +9,7 @@ export interface ThemeColor {
     secondary: CSS.ColorProperty;
     white: CSS.ColorProperty;
     black: CSS.ColorProperty;
+    [key: string]: CSS.ColorProperty;
 }
 
 export interface ThemeFontFamily {

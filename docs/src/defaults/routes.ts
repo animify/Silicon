@@ -11,7 +11,6 @@ import {
     PageBoxProps,
     PageCSS,
 } from '../pages';
-import { Route } from 'react-router';
 
 const enum RouteType {
     Button = 'Button',

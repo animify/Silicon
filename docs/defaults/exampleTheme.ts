@@ -2,14 +2,14 @@ import { PrismTheme } from 'prism-react-renderer';
 
 const exampleTheme: PrismTheme = {
     plain: {
-        backgroundColor: '#1c1c1c',
-        color: '#dfdfdf',
+        backgroundColor: '#F9FCFF',
+        color: '#172143',
     },
     styles: [
         {
             types: ['comment', 'prolog', 'doctype', 'cdata', 'punctuation'],
             style: {
-                color: '#dfdfdf',
+                color: '#869BAE',
             },
         },
         {
@@ -21,7 +21,7 @@ const exampleTheme: PrismTheme = {
         {
             types: ['tag', 'operator', 'number'],
             style: {
-                color: '#ffc866',
+                color: '#F3533D',
             },
         },
         {
@@ -39,7 +39,7 @@ const exampleTheme: PrismTheme = {
         {
             types: ['attr-name'],
             style: {
-                color: '#beb0ff',
+                color: '#5200FF',
             },
         },
         {
@@ -60,7 +60,7 @@ const exampleTheme: PrismTheme = {
                 'variable',
             ],
             style: {
-                color: '#a4dd5b',
+                color: '#1EA644',
             },
         },
         {

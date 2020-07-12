@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 export default function Sidebar() {
     return (
-        <Flex as="section" grow={1} direction="column">
+        <Flex as="section" grow={1} shrink={0} mr="6" direction="column">
             {Object.entries(routes).map(([key, route]) => (
                 <Link key={key} to={route.path}>
                     {route.title}
