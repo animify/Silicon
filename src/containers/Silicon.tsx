@@ -1,8 +1,9 @@
 import React from 'react';
 import { renderer } from '../utils/felaConfig';
-import { RendererProvider, ThemeProvider } from 'react-fela';
+import { RendererProvider } from 'react-fela';
 import lightTheme from '../theme/light';
 import { Theme } from '../theme/types';
+import SiliconTheme from './SiliconTheme';
 
 interface Props {
     children: React.ReactNode;
@@ -12,9 +13,9 @@ interface Props {
 export default function Silicon({ children, theme = lightTheme }: Props) {
     return (
         <RendererProvider renderer={renderer}>
-            <ThemeProvider theme={theme}>
+            <SiliconTheme theme={theme}>
                 <>{children}</>
-            </ThemeProvider>
+            </SiliconTheme>
         </RendererProvider>
     );
 }

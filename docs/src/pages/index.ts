@@ -9,3 +9,4 @@ export { default as PageText } from './PageText';
 export { default as PageBoxProps } from './PageBoxProps';
 export { default as PageCSS } from './PageCSS';
 export { default as PageVariant } from './PageVariant';
+export { default as PageColors } from './PageColors';

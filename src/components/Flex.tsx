@@ -7,7 +7,7 @@ import { CSSProps, styleRule } from '../utils/styleRule';
 import { VariantProps, variantRule } from '../utils/variantRule';
 
 interface FlexProps {
-    children: React.ReactNode;
+    children?: React.ReactNode;
     as?: React.ElementType;
     direction?: IStyle['flexDirection'];
     wrap?: IStyle['flexWrap'];

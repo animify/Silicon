@@ -6,7 +6,7 @@ import { styleRule, CSSProps } from '../utils/styleRule';
 import { VariantProps, variantRule } from '../utils/variantRule';
 
 interface ContainerProps {
-    children: React.ReactNode;
+    children?: React.ReactNode;
     as?: React.ElementType;
     size?: keyof ThemeContainer;
 }

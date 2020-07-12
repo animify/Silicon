@@ -2,6 +2,7 @@ import { Theme } from './types';
 import { fontFamilyHeading, fontFamilyBody, fontFamilyCode, spacing } from './defaults';
 
 const baseTheme: Omit<Theme, 'color'> = {
+    loadDefaultFont: true,
     container: {
         xs: '480px',
         sm: '640px',

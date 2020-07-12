@@ -10,6 +10,7 @@ import {
     PageVariant,
     PageBoxProps,
     PageCSS,
+    PageColors,
 } from '../pages';
 
 const enum RouteType {
@@ -24,6 +25,7 @@ const enum RouteType {
     Variant = 'Variant',
     BoxProps = 'BoxProps',
     CSS = 'CSS',
+    Colors = 'Colors',
 }
 
 type Routes = Record<
@@ -90,6 +92,11 @@ const routes: Routes = {
         title: RouteType.CSS,
         path: '/css',
         component: PageCSS,
+    },
+    [RouteType.Colors]: {
+        title: RouteType.Colors,
+        path: '/colors',
+        component: PageColors,
     },
 };
 

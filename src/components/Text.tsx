@@ -16,6 +16,7 @@ interface TextProps {
     lineHeight?: keyof ThemeTypographyScale;
     weight?: keyof ThemeFontWeight;
     textAlign?: IStyle['textAlign'];
+    textTransform?: IStyle['textTransform'];
 }
 
 type Props = TextProps &
@@ -39,6 +40,7 @@ const rule: CssFelaStyle<Theme, Props> = (state) => {
         lineHeight,
         fontWeight,
         textAlign: state.textAlign,
+        textTransform: state.textTransform,
     };
 };
 

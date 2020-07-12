@@ -1,13 +1,16 @@
 import { Theme } from './types';
 import baseTheme from './base';
 
+// Color scale preset:
+// https://hihayk.github.io/scale/#3/5/35/80/0/0/100/20/0071FF/0/113/255/white
+
 const lightTheme: Theme = {
     ...baseTheme,
     color: {
         primary: '#0071FF',
         secondary: '#869BAE',
 
-        dark10: '#1c1c1c',
+        dark10: '#010101',
         dark20: '#151515',
         dark30: '#353535',
         dark40: '#555555',
@@ -17,15 +20,15 @@ const lightTheme: Theme = {
         dark80: '#D5D5D5',
         dark90: '#F5F5F5',
 
-        blue10: '#A64300',
-        blue20: '#C45B00',
-        blue30: '#DD7505',
-        blue40: '#F2910D',
-        blue50: '#FFA629',
-        blue60: '#FFB952',
-        blue70: '#FFCB7A',
-        blue80: '#FFDCA3',
-        blue90: '#FFEDCC',
+        blue10: '#0048A6',
+        blue20: '#0055C4',
+        blue30: '#0063E1',
+        blue40: '#0071FF',
+        blue50: '#2985FF',
+        blue60: '#529BFF',
+        blue70: '#7AB1FF',
+        blue80: '#A3C8FF',
+        blue90: '#CCE0FF',
 
         yellow10: '#A64300',
         yellow20: '#C45B00',

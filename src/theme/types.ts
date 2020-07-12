@@ -66,6 +66,7 @@ export interface Variants {
 }
 
 export interface Theme {
+    loadDefaultFont?: boolean;
     container: ThemeContainer;
     spacing: ThemeSpacing;
     color: ThemeColor;
