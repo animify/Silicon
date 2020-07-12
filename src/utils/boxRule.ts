@@ -37,7 +37,15 @@ export interface BoxProps {
     borderLeft?: CSS.BorderLeftProperty<TLength>;
     borderRadius?: CSS.BorderRadiusProperty<TLength>;
     borderWidth?: CSS.BorderWidthProperty<TLength>;
+    borderTopWidth?: CSS.BorderTopWidthProperty<TLength>;
+    borderRightWidth?: CSS.BorderRightWidthProperty<TLength>;
+    borderLeftWidth?: CSS.BorderLeftWidthProperty<TLength>;
+    borderBottomWidth?: CSS.BorderBottomWidthProperty<TLength>;
     borderStyle?: CSS.BorderStyleProperty;
+    borderTopStyle?: CSS.BorderTopStyleProperty;
+    borderRightStyle?: CSS.BorderRightStyleProperty;
+    borderLeftStyle?: CSS.BorderLeftStyleProperty;
+    borderBottomStyle?: CSS.BorderBottomStyleProperty;
     bg?: CSS.BackgroundColorProperty;
     color?: CSS.ColorProperty;
     borderColor?: CSS.BorderColorProperty;
@@ -91,6 +99,14 @@ export const boxRule: CssFelaStyle<Theme, BoxProps> = (state) => {
         borderRadius: state.borderRadius,
         borderWidth: state.borderWidth,
         borderStyle: state.borderStyle,
+        borderTopWidth: state.borderTopWidth,
+        borderRightWidth: state.borderRightWidth,
+        borderLeftWidth: state.borderLeftWidth,
+        borderBottomWidth: state.borderBottomWidth,
+        borderTopStyle: state.borderTopStyle,
+        borderRightStyle: state.borderRightStyle,
+        borderLeftStyle: state.borderLeftStyle,
+        borderBottomStyle: state.borderBottomStyle,
         backgroundColor,
         color,
         borderColor,
