@@ -28,16 +28,13 @@ const enum RouteType {
     Colors = 'Colors',
 }
 
-type Routes = Record<
-    RouteType,
-    {
-        title: RouteType;
-        path: string;
-        component: () => JSX.Element;
-    }
->;
+interface Route {
+    title: RouteType;
+    path: string;
+    component: () => JSX.Element;
+}
 
-const routes: Routes = {
+const componentRoutes: Record<string, Route> = {
     [RouteType.Button]: {
         title: RouteType.Button,
         path: '/button',
@@ -78,6 +75,17 @@ const routes: Routes = {
         path: '/text',
         component: PageText,
     },
+};
+
+const themeRoutes: Record<string, Route> = {
+    [RouteType.Colors]: {
+        title: RouteType.Colors,
+        path: '/colors',
+        component: PageColors,
+    },
+};
+
+const styleRoutes: Record<string, Route> = {
     [RouteType.Variant]: {
         title: RouteType.Variant,
         path: '/variant',
@@ -93,11 +101,6 @@ const routes: Routes = {
         path: '/css',
         component: PageCSS,
     },
-    [RouteType.Colors]: {
-        title: RouteType.Colors,
-        path: '/colors',
-        component: PageColors,
-    },
 };
 
-export default routes;
+export { themeRoutes, styleRoutes, componentRoutes };

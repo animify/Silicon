@@ -23,7 +23,7 @@ export default function PageColors() {
     return (
         <section>
             {Object.entries(colorGroups).map(([group, names]) => (
-                <Flex key={group} direction="column" mt="8">
+                <Flex key={group} direction="column" mb="8">
                     <Flex align="center">
                         <Text size="h5" textTransform="capitalize" weight="semibold">
                             {group} Palette
