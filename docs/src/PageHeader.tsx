@@ -1,5 +1,6 @@
 import React from 'react';
 import { Flex, Text } from '../../src';
+import CodeSnippet from './CodeSnippet';
 
 interface Props {
     title: string;
@@ -8,17 +9,15 @@ interface Props {
 }
 
 export default function PageHeader({ title, description, importName }: Props) {
+    const code = `import { ${importName} } from "silicon.ui"`;
+
     return (
-        <Flex direction="column" mb="12">
+        <Flex direction="column" pb="12" mb="12" borderBottomWidth={2} borderBottomStyle="solid" borderColor="dark90">
             <Text size="h2" weight="bold">
                 {title}
             </Text>
             <Text color="dark40">{description}</Text>
-            {importName && (
-                <Text mt="6" family="code">
-                    import &#123; {importName} &#125; from &#x27;silicon.ui&#x27;;
-                </Text>
-            )}
+            {importName && <CodeSnippet title="Import" code={code} />}
         </Flex>
     );
 }

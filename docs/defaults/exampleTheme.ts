@@ -2,14 +2,20 @@ import { PrismTheme } from 'prism-react-renderer';
 
 const exampleTheme: PrismTheme = {
     plain: {
-        backgroundColor: '#F5F5F5',
-        color: '#555',
+        backgroundColor: '#1c1c1c',
+        color: '#D5D5D5',
     },
     styles: [
         {
-            types: ['comment', 'prolog', 'doctype', 'cdata', 'punctuation'],
+            types: ['comment', 'prolog', 'doctype', 'cdata'],
             style: {
-                color: '#757575',
+                color: '#D5D5D5',
+            },
+        },
+        {
+            types: ['punctuation'],
+            style: {
+                opacity: 0.6,
             },
         },
         {
@@ -19,10 +25,10 @@ const exampleTheme: PrismTheme = {
             },
         },
         {
-            types: ['tag', 'operator', 'number'],
+            types: ['tag', 'operator', 'number', 'keyword'],
             style: {
                 // Yellow
-                color: '#ff8f00',
+                color: '#ffc866',
             },
         },
         {
@@ -40,7 +46,7 @@ const exampleTheme: PrismTheme = {
         {
             types: ['attr-name'],
             style: {
-                color: '#009c8f',
+                color: '#11dccb',
             },
         },
         {
@@ -50,7 +56,6 @@ const exampleTheme: PrismTheme = {
                 'entity',
                 'url',
                 'attr-value',
-                'keyword',
                 'control',
                 'directive',
                 'unit',
@@ -61,7 +66,7 @@ const exampleTheme: PrismTheme = {
                 'variable',
             ],
             style: {
-                color: '#0071FF',
+                color: '#7AB1FF',
             },
         },
         {

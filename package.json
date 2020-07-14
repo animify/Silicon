@@ -39,7 +39,8 @@
     "react-fela": "^11.3.0",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
-    "typescript": "^3.9.6"
+    "typescript": "^3.9.6",
+    "use-copy": "^0.0.2"
   },
   "devDependencies": {
     "@types/classnames": "^2.2.10",

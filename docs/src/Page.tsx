@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container } from '../../src';
-import { Nav, Sidebar } from './components';
+import { Sidebar } from './components';
 
 interface Props {
     children: React.ReactNode;
@@ -9,9 +9,9 @@ interface Props {
 export default function Page({ children }: Props) {
     return (
         <>
-            <Nav />
+            {/* <Nav /> */}
 
-            <Container as="main" p="8" css={{ display: 'flex' }}>
+            <Container as="main" mt="12" p="8" display="flex">
                 <Sidebar />
 
                 <Container as="main" size="md">
