@@ -1,3 +1,23 @@
+## [Version 0.0.11](https://github.com/animify/Silicon/releases/tag/v0.0.11) (2020-7-14)
+
+### New features
+
+- add colors page: [`bf3d7f5`](https://github.com/animify/Silicon/commit/bf3d7f5)
+
+### Bug fixes
+
+- fix box rule for padding and margin: [`a8a87c0`](https://github.com/animify/Silicon/commit/a8a87c0)
+- support ref and displayName: [`35abafb`](https://github.com/animify/Silicon/commit/35abafb)
+- update lightTheme colors: [`1dd1d2c`](https://github.com/animify/Silicon/commit/1dd1d2c)
+- split routing: [`f372a41`](https://github.com/animify/Silicon/commit/f372a41)
+- concept for "as" prop and extend props: [`0c5d8c3`](https://github.com/animify/Silicon/commit/0c5d8c3)
+- extend other components to support as prop: [`14090a3`](https://github.com/animify/Silicon/commit/14090a3)
+- useRule to clean up states: [`0967d1a`](https://github.com/animify/Silicon/commit/0967d1a)
+- fix imports: [`9c7ec1d`](https://github.com/animify/Silicon/commit/9c7ec1d)
+- allow box to override base rules: [`ea6f517`](https://github.com/animify/Silicon/commit/ea6f517)
+
+[...full changes](https://github.com/animify/Silicon/compare/v0.0.10...v0.0.11)
+
 ## [Version 0.0.10](https://github.com/animify/Silicon/releases/tag/v0.0.10) (2020-7-10)
 
 ### Bug fixes
