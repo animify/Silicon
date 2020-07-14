@@ -1,14 +1,12 @@
 import React from 'react';
-import { useFela, CssFelaStyle } from 'react-fela';
+import { CssFelaStyle } from 'react-fela';
 import { Theme } from '../theme/types';
-import { BoxProps, boxRule } from '../utils/boxRule';
-import { styleRule, CSSProps } from '../utils/styleRule';
-import { VariantProps, variantRule } from '../utils/variantRule';
-import getElement, { AsProp } from '../utils/getElement';
-import { ExtendProps } from '../types';
+import getElement from '../utils/getElement';
+import { ExtendProps, HTMLImgProps, ComponentTypes } from '../types';
 import forwardRef from '../utils/forwardRef';
+import useRule from '../utils/useRule';
 
-type Props<T> = AsProp<T> & BoxProps & CSSProps<Props<T>> & VariantProps & React.ImgHTMLAttributes<T>;
+type Props<T> = HTMLImgProps & ComponentTypes<T>;
 
 const rule: CssFelaStyle<Theme, Props<any>> = () => ({});
 
@@ -16,10 +14,11 @@ function ImageComponent<T extends React.ReactType = 'img'>(
     props: ExtendProps<Props<T>, T>,
     forwardedRef: React.Ref<T>,
 ) {
+    const { className, ...rest } = props;
+    const classRule = useRule<Props<T>>({ rule, props, className });
     const Element = getElement(props, 'img');
-    const { css } = useFela<Theme, Props<T>>(props);
 
-    return <Element ref={forwardedRef} className={css(boxRule, rule, variantRule, styleRule)} {...props} />;
+    return <Element ref={forwardedRef} className={classRule} {...rest} />;
 }
 
 const Image = forwardRef(ImageComponent);

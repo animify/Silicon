@@ -1,24 +1,17 @@
 import React from 'react';
-import { useFela, CssFelaStyle } from 'react-fela';
+import { CssFelaStyle } from 'react-fela';
 import { Theme } from '../theme/types';
-import { BoxProps, boxRule } from '../utils/boxRule';
-import { CSSProps, styleRule } from '../utils/styleRule';
-import { VariantProps, variantRule } from '../utils/variantRule';
-import getElement, { AsProp } from '../utils/getElement';
-import { ExtendProps } from '../types';
+import getElement from '../utils/getElement';
+import { ExtendProps, ComponentTypes, HTMLButtonProps } from '../types';
 import forwardRef from '../utils/forwardRef';
+import useRule from '../utils/useRule';
 
-interface InputProps {
+interface ButtonProps {
     kind?: 'primary' | 'secondary';
     loading?: boolean;
 }
 
-type Props<T> = AsProp<T> &
-    InputProps &
-    BoxProps &
-    CSSProps<Props<T>> &
-    VariantProps &
-    React.ButtonHTMLAttributes<HTMLButtonElement>;
+type Props<T> = HTMLButtonProps & ComponentTypes<T> & ButtonProps;
 
 const rule: CssFelaStyle<Theme, Props<any>> = (state) => ({
     backgroundColor: state.theme.color.primary,
@@ -43,16 +36,12 @@ function ButtonComponent<T extends React.ReactType = 'button'>(
     props: ExtendProps<Props<T>, T>,
     forwardedRef: React.Ref<T>,
 ) {
-    const { css } = useFela<Theme, Props<T>>(props);
+    const { className, ...rest } = props;
+    const classRule = useRule<Props<T>>({ rule, props, className });
     const Element = getElement(props, 'button');
 
     return (
-        <Element
-            ref={forwardedRef}
-            className={css(boxRule, rule, variantRule, styleRule)}
-            disabled={props.loading || props.disabled}
-            {...props}
-        >
+        <Element ref={forwardedRef} className={classRule} disabled={props.loading || props.disabled} {...rest}>
             {props.children}
         </Element>
     );

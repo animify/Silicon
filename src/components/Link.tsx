@@ -1,14 +1,12 @@
 import React from 'react';
 import { ThemeTypographyScale, Theme, ThemeFontWeight, ThemeFontFamily } from '../theme/types';
-import { useFela, CssFelaStyle } from 'react-fela';
+import { CssFelaStyle } from 'react-fela';
 import { IStyle } from 'fela';
-import { BoxProps, boxRule } from '../utils/boxRule';
-import { CSSProps, styleRule } from '../utils/styleRule';
-import { VariantProps, variantRule } from '../utils/variantRule';
 import getFromTheme from '../utils/getFromTheme';
-import getElement, { AsProp } from '../utils/getElement';
+import getElement from '../utils/getElement';
 import forwardRef from '../utils/forwardRef';
-import { ExtendProps } from '../types';
+import { ExtendProps, HTMLAnchorProps, ComponentTypes } from '../types';
+import useRule from '../utils/useRule';
 
 interface LinkProps {
     family?: keyof ThemeFontFamily;
@@ -19,7 +17,7 @@ interface LinkProps {
     textAlign?: IStyle['textAlign'];
 }
 
-type Props<T> = AsProp<T> & LinkProps & BoxProps & CSSProps<Props<T>> & VariantProps & React.HTMLProps<T>;
+type Props<T> = Omit<HTMLAnchorProps, 'size'> & ComponentTypes<T> & LinkProps;
 
 const rule: CssFelaStyle<Theme, Props<any>> = (state) => {
     const fontSize = getFromTheme(state.size || 'p', 'fontSize', state.theme);
@@ -48,11 +46,12 @@ const rule: CssFelaStyle<Theme, Props<any>> = (state) => {
 };
 
 function LinkComponent<T extends React.ReactType = 'a'>(props: ExtendProps<Props<T>, T>, forwardedRef: React.Ref<T>) {
-    const { css } = useFela<Theme, Props<T>>(props);
+    const { className, ...rest } = props;
+    const classRule = useRule<Props<T>>({ rule, props, className });
     const Element = getElement(props, 'a');
 
     return (
-        <Element ref={forwardedRef} className={css(boxRule, rule, variantRule, styleRule)} {...props}>
+        <Element ref={forwardedRef} className={classRule} {...rest}>
             {props.children}
         </Element>
     );

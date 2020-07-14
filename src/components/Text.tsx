@@ -1,15 +1,12 @@
 import React from 'react';
 import { ThemeTypographyScale, Theme, ThemeFontWeight, ThemeFontFamily } from '../theme/types';
-import { useFela, CssFelaStyle } from 'react-fela';
+import { CssFelaStyle } from 'react-fela';
 import { IStyle } from 'fela';
-import { BoxProps, boxRule } from '../utils/boxRule';
-import { CSSProps, styleRule } from '../utils/styleRule';
-import { VariantProps, variantRule } from '../utils/variantRule';
 import getFromTheme from '../utils/getFromTheme';
-import classNames from 'classnames';
-import getElement, { AsProp } from '../utils/getElement';
-import { ExtendProps } from '../types';
+import getElement from '../utils/getElement';
+import { ExtendProps, ComponentTypes, HTMLTextareaProps } from '../types';
 import forwardRef from '../utils/forwardRef';
+import useRule from '../utils/useRule';
 
 interface TextProps {
     family?: keyof ThemeFontFamily;
@@ -21,12 +18,7 @@ interface TextProps {
     textTransform?: IStyle['textTransform'];
 }
 
-type Props<T> = TextProps &
-    AsProp<T> &
-    BoxProps &
-    CSSProps<Props<T>> &
-    VariantProps &
-    Omit<React.TextareaHTMLAttributes<T>, 'size'>;
+type Props<T> = Omit<HTMLTextareaProps, 'size'> & ComponentTypes<T> & TextProps;
 
 const rule: CssFelaStyle<Theme, Props<any>> = (state) => {
     const fontSize = getFromTheme(state.size || 'p', 'fontSize', state.theme);
@@ -52,15 +44,11 @@ function TextComponent<T extends React.ReactType = 'p'>(
     forwardedRef: React.Ref<React.ElementType>,
 ) {
     const { className, ...rest } = props;
-    const { css } = useFela<Theme, Props<T>>(props);
-    const Element = getElement(props, props.size || 'p');
+    const classRule = useRule<Props<T>>({ rule, props, className });
+    const Element = getElement(props, 'p');
 
     return (
-        <Element
-            ref={forwardedRef}
-            className={classNames(className, css(boxRule, rule, variantRule, styleRule))}
-            {...rest}
-        >
+        <Element ref={forwardedRef} className={classRule} {...rest}>
             {props.children}
         </Element>
     );
