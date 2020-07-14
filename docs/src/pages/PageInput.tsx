@@ -1,13 +1,18 @@
 import React from 'react';
 import Example from '../Example';
 import { Input } from '../../../src';
+import PageHeader from '../PageHeader';
 
 export default function PageInput() {
     return (
-        <section>
-            <Example>
-                <Input placeholder="Placeholder value" defaultValue="Input value" />
-            </Example>
-        </section>
+        <>
+            <PageHeader title="Link" description="The Link component is used for." importName="Input" />
+
+            <section>
+                <Example title="Default Input" description="The default input">
+                    <Input placeholder="Placeholder value" defaultValue="Input value" />
+                </Example>
+            </section>
+        </>
     );
 }
