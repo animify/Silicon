@@ -5,7 +5,7 @@ import { IStyle } from 'fela';
 import getElement from '../utils/getElement';
 import { ExtendProps, HTMLDivProps, ComponentTypes } from '../types';
 import forwardRef from '../utils/forwardRef';
-import useRule from '../utils/useRule';
+import { useRule } from '../hooks';
 
 interface GridProps {
     gridGap?: IStyle['gridGap'];

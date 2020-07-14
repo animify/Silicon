@@ -4,7 +4,7 @@ import { Theme } from '../theme/types';
 import getElement from '../utils/getElement';
 import { ExtendProps, ComponentTypes, HTMLButtonProps } from '../types';
 import forwardRef from '../utils/forwardRef';
-import useRule from '../utils/useRule';
+import { useRule } from '../hooks';
 
 interface ButtonProps {
     kind?: 'primary' | 'secondary';

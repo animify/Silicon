@@ -6,7 +6,7 @@ import getFromTheme from '../utils/getFromTheme';
 import getElement from '../utils/getElement';
 import { ExtendProps, ComponentTypes, HTMLTextareaProps } from '../types';
 import forwardRef from '../utils/forwardRef';
-import useRule from '../utils/useRule';
+import { useRule } from '../hooks';
 
 interface TextProps {
     family?: keyof ThemeFontFamily;

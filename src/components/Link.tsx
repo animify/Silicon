@@ -6,7 +6,7 @@ import getFromTheme from '../utils/getFromTheme';
 import getElement from '../utils/getElement';
 import forwardRef from '../utils/forwardRef';
 import { ExtendProps, HTMLAnchorProps, ComponentTypes } from '../types';
-import useRule from '../utils/useRule';
+import { useRule } from '../hooks';
 
 interface LinkProps {
     family?: keyof ThemeFontFamily;

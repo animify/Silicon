@@ -4,7 +4,7 @@ import { Theme } from '../theme/types';
 import getElement from '../utils/getElement';
 import forwardRef from '../utils/forwardRef';
 import { ExtendProps, HTMLInputProps, ComponentTypes } from '../types';
-import useRule from '../utils/useRule';
+import { useRule } from '../hooks';
 
 interface InputProps {
     loading?: boolean;

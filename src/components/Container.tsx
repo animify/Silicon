@@ -4,7 +4,7 @@ import { CssFelaStyle } from 'react-fela';
 import getElement from '../utils/getElement';
 import { ExtendProps, HTMLDivProps, ComponentTypes } from '../types';
 import forwardRef from '../utils/forwardRef';
-import useRule from '../utils/useRule';
+import { useRule } from '../hooks';
 
 interface ContainerProps {
     size?: keyof ThemeContainer;

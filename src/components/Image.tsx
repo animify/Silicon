@@ -4,7 +4,7 @@ import { Theme } from '../theme/types';
 import getElement from '../utils/getElement';
 import { ExtendProps, HTMLImgProps, ComponentTypes } from '../types';
 import forwardRef from '../utils/forwardRef';
-import useRule from '../utils/useRule';
+import { useRule } from '../hooks';
 
 type Props<T> = HTMLImgProps & ComponentTypes<T>;
 
