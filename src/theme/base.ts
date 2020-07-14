@@ -19,7 +19,7 @@ const baseTheme: Omit<Theme, 'color'> = {
         h5: '20px',
         h6: '16px',
         p: '16px',
-        small: '12px',
+        small: '14px',
     },
     letterSpacing: {
         h1: '0px',
@@ -29,7 +29,7 @@ const baseTheme: Omit<Theme, 'color'> = {
         h5: '0px',
         h6: '0px',
         p: '0px',
-        small: '0px',
+        small: '0.24px',
     },
     lineHeight: {
         h1: 1.5,

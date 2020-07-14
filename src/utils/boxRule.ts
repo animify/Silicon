@@ -69,7 +69,7 @@ export const boxRule: CssFelaStyle<Theme, BoxProps> = (state) => {
     const backgroundColor = getFromTheme(state.bg, 'color', state.theme);
     const borderColor = getFromTheme(state.borderColor, 'color', state.theme);
 
-    return {
+    const props = {
         margin,
         padding,
         marginTop,
@@ -111,4 +111,8 @@ export const boxRule: CssFelaStyle<Theme, BoxProps> = (state) => {
         color,
         borderColor,
     };
+
+    Object.keys(props).forEach((key) => (props[key] === undefined ? delete props[key] : {}));
+
+    return props;
 };

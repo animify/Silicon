@@ -36,6 +36,7 @@ const rule: CssFelaStyle<Theme, Props<any>> = (state) => {
         lineHeight,
         fontWeight,
         textAlign: state.textAlign,
+        cursor: 'pointer',
 
         nested: {
             '&:hover': {

@@ -14,5 +14,5 @@ interface HookProps<P> {
 export default function useRule<P>({ rule, props, className }: HookProps<P>): string {
     const { css } = useFela<Theme, P>(props);
 
-    return classNames(className, css(boxRule, rule, variantRule, styleRule));
+    return classNames(className, css(rule, boxRule, variantRule, styleRule));
 }
