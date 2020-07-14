@@ -7,9 +7,11 @@ import { CSSProps, styleRule } from '../utils/styleRule';
 import { VariantProps, variantRule } from '../utils/variantRule';
 import getFromTheme from '../utils/getFromTheme';
 import classNames from 'classnames';
+import getElement, { AsProp } from '../utils/getElement';
+import { ExtendProps } from '../types';
+import forwardRef from '../utils/forwardRef';
 
 interface TextProps {
-    as?: React.ElementType;
     family?: keyof ThemeFontFamily;
     size?: keyof ThemeTypographyScale;
     letterSpacing?: keyof ThemeTypographyScale;
@@ -19,13 +21,14 @@ interface TextProps {
     textTransform?: IStyle['textTransform'];
 }
 
-type Props = TextProps &
+type Props<T> = TextProps &
+    AsProp<T> &
     BoxProps &
-    CSSProps<Props> &
+    CSSProps<Props<T>> &
     VariantProps &
-    Omit<React.TextareaHTMLAttributes<HTMLHeadingElement | HTMLParagraphElement>, 'size'>;
+    Omit<React.TextareaHTMLAttributes<T>, 'size'>;
 
-const rule: CssFelaStyle<Theme, Props> = (state) => {
+const rule: CssFelaStyle<Theme, Props<any>> = (state) => {
     const fontSize = getFromTheme(state.size || 'p', 'fontSize', state.theme);
     const fontWeight = getFromTheme(state.weight || 'regular', 'fontWeight', state.theme);
     const isHeader = !['p', 'small'].includes(fontSize);
@@ -44,10 +47,13 @@ const rule: CssFelaStyle<Theme, Props> = (state) => {
     };
 };
 
-function TextComponent(props: Props, forwardedRef: React.Ref<React.ElementType>) {
+function TextComponent<T extends React.ReactType = 'p'>(
+    props: ExtendProps<Props<T>, T>,
+    forwardedRef: React.Ref<React.ElementType>,
+) {
     const { className, ...rest } = props;
-    const { css } = useFela<Theme, Props>(props);
-    const Element = props.as || props.size || 'p';
+    const { css } = useFela<Theme, Props<T>>(props);
+    const Element = getElement(props, props.size || 'p');
 
     return (
         <Element
@@ -60,7 +66,7 @@ function TextComponent(props: Props, forwardedRef: React.Ref<React.ElementType>)
     );
 }
 
-const Text = React.forwardRef(TextComponent);
+const Text = forwardRef(TextComponent);
 
 Text.displayName = 'Text';
 

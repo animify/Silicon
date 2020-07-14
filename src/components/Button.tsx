@@ -4,16 +4,23 @@ import { Theme } from '../theme/types';
 import { BoxProps, boxRule } from '../utils/boxRule';
 import { CSSProps, styleRule } from '../utils/styleRule';
 import { VariantProps, variantRule } from '../utils/variantRule';
+import getElement, { AsProp } from '../utils/getElement';
+import { ExtendProps } from '../types';
+import forwardRef from '../utils/forwardRef';
 
 interface InputProps {
-    kind: 'primary' | 'secondary';
-    children: React.ReactNode;
+    kind?: 'primary' | 'secondary';
     loading?: boolean;
 }
 
-type Props = InputProps & BoxProps & CSSProps<Props> & VariantProps & React.ButtonHTMLAttributes<HTMLButtonElement>;
+type Props<T> = AsProp<T> &
+    InputProps &
+    BoxProps &
+    CSSProps<Props<T>> &
+    VariantProps &
+    React.ButtonHTMLAttributes<HTMLButtonElement>;
 
-const rule: CssFelaStyle<Theme, Props> = (state) => ({
+const rule: CssFelaStyle<Theme, Props<any>> = (state) => ({
     backgroundColor: state.theme.color.primary,
     color: state.theme.color.white,
     fontWeight: state.theme.fontWeight.medium,
@@ -32,22 +39,26 @@ const rule: CssFelaStyle<Theme, Props> = (state) => ({
     },
 });
 
-function ButtonComponent(props: Props, forwardedRef: React.Ref<HTMLButtonElement>) {
-    const { css } = useFela<Theme, Props>(props);
+function ButtonComponent<T extends React.ReactType = 'button'>(
+    props: ExtendProps<Props<T>, T>,
+    forwardedRef: React.Ref<T>,
+) {
+    const { css } = useFela<Theme, Props<T>>(props);
+    const Element = getElement(props, 'button');
 
     return (
-        <button
+        <Element
             ref={forwardedRef}
             className={css(boxRule, rule, variantRule, styleRule)}
             disabled={props.loading || props.disabled}
             {...props}
         >
             {props.children}
-        </button>
+        </Element>
     );
 }
 
-const Button = React.forwardRef(ButtonComponent);
+const Button = forwardRef(ButtonComponent);
 
 Button.displayName = 'Button';
 

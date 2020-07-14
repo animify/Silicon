@@ -5,10 +5,11 @@ import { IStyle } from 'fela';
 import { BoxProps, boxRule } from '../utils/boxRule';
 import { CSSProps, styleRule } from '../utils/styleRule';
 import { VariantProps, variantRule } from '../utils/variantRule';
+import getElement, { AsProp } from '../utils/getElement';
+import { ExtendProps } from '../types';
+import forwardRef from '../utils/forwardRef';
 
 interface GridProps {
-    children: React.ReactNode;
-    as?: React.ElementType;
     gridGap?: IStyle['gridGap'];
     gridColumnGap?: IStyle['gridColumnGap'];
     gridRowGap?: IStyle['gridRowGap'];
@@ -23,9 +24,9 @@ interface GridProps {
     gridArea?: IStyle['gridArea'];
 }
 
-type Props = GridProps & BoxProps & CSSProps<Props> & VariantProps & React.HTMLProps<React.ElementType>;
+type Props<T> = GridProps & AsProp<T> & BoxProps & CSSProps<T> & VariantProps & React.HTMLProps<T>;
 
-const rule: CssFelaStyle<Theme, Props> = (state) => ({
+const rule: CssFelaStyle<Theme, Props<any>> = (state) => ({
     gridGap: state.gridGap,
     gridColumnGap: state.gridColumnGap,
     gridRowGap: state.gridRowGap,
@@ -40,9 +41,12 @@ const rule: CssFelaStyle<Theme, Props> = (state) => ({
     gridArea: state.gridArea,
 });
 
-function GridComponent(props: Props, forwardedRef: React.Ref<React.ElementType>) {
-    const Element = props.as || 'div';
-    const { css } = useFela<Theme, Props>(props);
+function GridComponent<T extends React.ReactType = 'div'>(
+    props: ExtendProps<Props<T>, T>,
+    forwardedRef: React.Ref<React.ElementType>,
+) {
+    const Element = getElement(props, 'div');
+    const { css } = useFela<Theme, Props<T>>(props);
 
     return (
         <Element ref={forwardedRef} className={css(boxRule, rule, variantRule, styleRule)} {...props}>
@@ -51,7 +55,7 @@ function GridComponent(props: Props, forwardedRef: React.Ref<React.ElementType>)
     );
 }
 
-const Grid = React.forwardRef(GridComponent);
+const Grid = forwardRef(GridComponent);
 
 Grid.displayName = 'Grid';
 

@@ -4,14 +4,17 @@ import { Theme } from '../theme/types';
 import { BoxProps, boxRule } from '../utils/boxRule';
 import { CSSProps, styleRule } from '../utils/styleRule';
 import { VariantProps, variantRule } from '../utils/variantRule';
+import getElement, { AsProp } from '../utils/getElement';
+import forwardRef from '../utils/forwardRef';
+import { ExtendProps } from '../types';
 
 interface InputProps {
     loading?: boolean;
 }
 
-type Props = InputProps & BoxProps & CSSProps<Props> & VariantProps & React.InputHTMLAttributes<HTMLInputElement>;
+type Props<T> = InputProps & AsProp<T> & BoxProps & CSSProps<Props<T>> & VariantProps & React.InputHTMLAttributes<T>;
 
-const rule: CssFelaStyle<Theme, Props> = (state) => ({
+const rule: CssFelaStyle<Theme, Props<any>> = (state) => ({
     border: `1px solid ${state.theme.color.black}`,
     color: state.theme.color.black,
     padding: '8px 16px',
@@ -22,11 +25,15 @@ const rule: CssFelaStyle<Theme, Props> = (state) => ({
     cursor: state.loading || state ? 'default' : undefined,
 });
 
-function InputComponent(props: Props, forwardedRef: React.Ref<HTMLInputElement>) {
-    const { css } = useFela<Theme, Props>(props);
+function InputComponent<T extends React.ReactType = 'input'>(
+    props: ExtendProps<Props<T>, T>,
+    forwardedRef: React.Ref<T>,
+) {
+    const Element = getElement(props, 'input');
+    const { css } = useFela<Theme, Props<T>>(props);
 
     return (
-        <input
+        <Element
             ref={forwardedRef}
             className={css(boxRule, rule, variantRule, styleRule)}
             disabled={props.loading || props.disabled}
@@ -35,7 +42,7 @@ function InputComponent(props: Props, forwardedRef: React.Ref<HTMLInputElement>)
     );
 }
 
-const Input = React.forwardRef(InputComponent);
+const Input = forwardRef(InputComponent);
 
 Input.displayName = 'Input';
 

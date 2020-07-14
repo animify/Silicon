@@ -19,7 +19,7 @@ interface LinkProps {
     textAlign?: IStyle['textAlign'];
 }
 
-type Props<T> = AsProp<T> & LinkProps & BoxProps & CSSProps<Props<T>> & VariantProps;
+type Props<T> = AsProp<T> & LinkProps & BoxProps & CSSProps<Props<T>> & VariantProps & React.HTMLProps<T>;
 
 const rule: CssFelaStyle<Theme, Props<any>> = (state) => {
     const fontSize = getFromTheme(state.size || 'p', 'fontSize', state.theme);
