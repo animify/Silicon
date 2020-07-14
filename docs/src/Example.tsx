@@ -15,7 +15,7 @@ export default function Example({ children, title, description }: Props) {
 
     return (
         <Flex direction="column" mb="12">
-            <Text size="h4" weight="semibold">
+            <Text size="h5" weight="semibold">
                 {title}
             </Text>
             <Text color="dark50">{description}</Text>

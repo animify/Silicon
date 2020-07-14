@@ -1,6 +1,7 @@
 import React from 'react';
 import { Flex, Text } from '../../../src';
 import lightTheme from '../../../src/theme/light';
+import PageHeader from '../PageHeader';
 
 export default function PageColors() {
     const colorMap = lightTheme.color;
@@ -21,35 +22,39 @@ export default function PageColors() {
     }, {});
 
     return (
-        <section>
-            {Object.entries(colorGroups).map(([group, names]) => (
-                <Flex key={group} direction="column" mb="8">
-                    <Flex align="center">
-                        <Text size="h5" textTransform="capitalize" weight="semibold">
-                            {group} Palette
-                        </Text>
-                        <Text color="dark50" weight="medium" ml="2">
-                            {names.length} color{names.length > 1 ? 's' : ''}
-                        </Text>
-                    </Flex>
+        <>
+            <PageHeader title="Colors" description="The light theme color palette." />
 
-                    <Flex mt="2">
-                        {names
-                            .sort((a, b) => parseInt(b) - parseInt(a))
-                            .map((name) => (
-                                <Flex key={name} direction="column" maxWidth="100%">
-                                    <Flex mb="1" height={85} width={85} bg={colorMap[name]} />
-                                    <Text size="small" weight="bold">
-                                        {name}
-                                    </Text>
-                                    <Text size="small" family="code" weight="medium" color="dark50">
-                                        {colorMap[name]}
-                                    </Text>
-                                </Flex>
-                            ))}
+            <section>
+                {Object.entries(colorGroups).map(([group, names]) => (
+                    <Flex key={group} direction="column" mb="12">
+                        <Flex direction="column">
+                            <Text size="h5" textTransform="capitalize" weight="semibold">
+                                {group} Palette
+                            </Text>
+                            <Text color="dark50">
+                                {names.length} color{names.length > 1 ? 's' : ''}
+                            </Text>
+                        </Flex>
+
+                        <Flex mt="3">
+                            {names
+                                .sort((a, b) => parseInt(b) - parseInt(a))
+                                .map((name) => (
+                                    <Flex key={name} direction="column" maxWidth="100%">
+                                        <Flex mb="1" height={85} width={85} bg={colorMap[name]} />
+                                        <Text size="small" weight="bold">
+                                            {name}
+                                        </Text>
+                                        <Text size="small" family="code" weight="medium" color="dark50">
+                                            {colorMap[name]}
+                                        </Text>
+                                    </Flex>
+                                ))}
+                        </Flex>
                     </Flex>
-                </Flex>
-            ))}
-        </section>
+                ))}
+            </section>
+        </>
     );
 }

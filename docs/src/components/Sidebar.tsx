@@ -1,7 +1,7 @@
 import React from 'react';
-import { Flex, Text } from '../../../src';
+import { Flex, Text, Link } from '../../../src';
 import { componentRoutes, themeRoutes, styleRoutes } from '../defaults/routes';
-import { Link } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
 
 const routesList = [
     { title: 'Components', routes: componentRoutes },
@@ -13,10 +13,12 @@ export default function Sidebar() {
     return (
         <Flex as="section" grow={1} shrink={0} mr="6" direction="column">
             {routesList.map(({ title, routes }) => (
-                <Flex key={title} direction="column" mb="4">
-                    <Text weight="semibold">{title}</Text>
+                <Flex key={title} direction="column" mb="6">
+                    <Text weight="semibold" mb="2">
+                        {title}
+                    </Text>
                     {Object.entries(routes).map(([key, route]) => (
-                        <Link key={key} to={route.path}>
+                        <Link key={key} as={RouterLink} to={route.path} py="2">
                             {route.title}
                         </Link>
                     ))}
