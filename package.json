@@ -24,6 +24,7 @@
     "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix"
   },
   "dependencies": {
+    "classnames": "^2.2.6",
     "fela": "^11.3.0",
     "fela-plugin-fallback-value": "^11.3.0",
     "fela-plugin-named-keys": "^11.3.0",
@@ -41,6 +42,7 @@
     "typescript": "^3.9.6"
   },
   "devDependencies": {
+    "@types/classnames": "^2.2.10",
     "@types/react": "^16.9.41",
     "@types/react-dom": "^16.9.8",
     "@types/react-router": "^5.1.8",

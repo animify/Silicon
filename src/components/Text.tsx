@@ -6,9 +6,9 @@ import { BoxProps, boxRule } from '../utils/boxRule';
 import { CSSProps, styleRule } from '../utils/styleRule';
 import { VariantProps, variantRule } from '../utils/variantRule';
 import getFromTheme from '../utils/getFromTheme';
+import classNames from 'classnames';
 
 interface TextProps {
-    children: React.ReactNode;
     as?: React.ElementType;
     family?: keyof ThemeFontFamily;
     size?: keyof ThemeTypographyScale;
@@ -23,7 +23,7 @@ type Props = TextProps &
     BoxProps &
     CSSProps<Props> &
     VariantProps &
-    Omit<React.HTMLProps<HTMLHeadingElement | HTMLParagraphElement>, 'size'>;
+    Omit<React.TextareaHTMLAttributes<HTMLHeadingElement | HTMLParagraphElement>, 'size'>;
 
 const rule: CssFelaStyle<Theme, Props> = (state) => {
     const fontSize = getFromTheme(state.size || 'p', 'fontSize', state.theme);
@@ -45,11 +45,16 @@ const rule: CssFelaStyle<Theme, Props> = (state) => {
 };
 
 function TextComponent(props: Props, forwardedRef: React.Ref<React.ElementType>) {
+    const { className, ...rest } = props;
     const { css } = useFela<Theme, Props>(props);
     const Element = props.as || props.size || 'p';
 
     return (
-        <Element ref={forwardedRef} className={css(boxRule, rule, variantRule, styleRule)}>
+        <Element
+            ref={forwardedRef}
+            className={classNames(className, css(boxRule, rule, variantRule, styleRule))}
+            {...rest}
+        >
             {props.children}
         </Element>
     );

@@ -6,9 +6,11 @@ import { BoxProps, boxRule } from '../utils/boxRule';
 import { CSSProps, styleRule } from '../utils/styleRule';
 import { VariantProps, variantRule } from '../utils/variantRule';
 import getFromTheme from '../utils/getFromTheme';
+import getElement, { AsProp } from '../utils/getElement';
+import forwardRef from '../utils/forwardRef';
+import { ExtendProps } from '../types';
 
 interface LinkProps {
-    children: React.ReactNode;
     family?: keyof ThemeFontFamily;
     size?: keyof ThemeTypographyScale;
     letterSpacing?: keyof ThemeTypographyScale;
@@ -17,9 +19,9 @@ interface LinkProps {
     textAlign?: IStyle['textAlign'];
 }
 
-type Props = LinkProps & BoxProps & CSSProps<Props> & VariantProps & React.HTMLProps<HTMLAnchorElement>;
+type Props<T> = AsProp<T> & LinkProps & BoxProps & CSSProps<Props<T>> & VariantProps;
 
-const rule: CssFelaStyle<Theme, Props> = (state) => {
+const rule: CssFelaStyle<Theme, Props<any>> = (state) => {
     const fontSize = getFromTheme(state.size || 'p', 'fontSize', state.theme);
     const fontWeight = getFromTheme(state.weight || 'regular', 'fontWeight', state.theme);
     const isHeader = !['p', 'small'].includes(fontSize);
@@ -45,17 +47,18 @@ const rule: CssFelaStyle<Theme, Props> = (state) => {
     };
 };
 
-function LinkComponent(props: Props, forwardedRef: React.Ref<HTMLAnchorElement>) {
-    const { css } = useFela<Theme, Props>(props);
+function LinkComponent<T extends React.ReactType = 'a'>(props: ExtendProps<Props<T>, T>, forwardedRef: React.Ref<T>) {
+    const { css } = useFela<Theme, Props<T>>(props);
+    const Element = getElement(props, 'a');
 
     return (
-        <a ref={forwardedRef} className={css(boxRule, rule, variantRule, styleRule)} href={props.href}>
+        <Element ref={forwardedRef} className={css(boxRule, rule, variantRule, styleRule)} {...props}>
             {props.children}
-        </a>
+        </Element>
     );
 }
 
-const Link = React.forwardRef(LinkComponent);
+const Link = forwardRef(LinkComponent);
 
 Link.displayName = 'Link';
 

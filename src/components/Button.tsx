@@ -11,7 +11,7 @@ interface InputProps {
     loading?: boolean;
 }
 
-type Props = InputProps & BoxProps & CSSProps<Props> & VariantProps & React.HTMLProps<HTMLButtonElement>;
+type Props = InputProps & BoxProps & CSSProps<Props> & VariantProps & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 const rule: CssFelaStyle<Theme, Props> = (state) => ({
     backgroundColor: state.theme.color.primary,
@@ -40,6 +40,7 @@ function ButtonComponent(props: Props, forwardedRef: React.Ref<HTMLButtonElement
             ref={forwardedRef}
             className={css(boxRule, rule, variantRule, styleRule)}
             disabled={props.loading || props.disabled}
+            {...props}
         >
             {props.children}
         </button>

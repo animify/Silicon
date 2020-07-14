@@ -45,7 +45,7 @@ function GridComponent(props: Props, forwardedRef: React.Ref<React.ElementType>)
     const { css } = useFela<Theme, Props>(props);
 
     return (
-        <Element ref={forwardedRef} className={css(boxRule, rule, variantRule, styleRule)}>
+        <Element ref={forwardedRef} className={css(boxRule, rule, variantRule, styleRule)} {...props}>
             {props.children}
         </Element>
     );

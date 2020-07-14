@@ -5,25 +5,14 @@ import { BoxProps, boxRule } from '../utils/boxRule';
 import { styleRule, CSSProps } from '../utils/styleRule';
 import { VariantProps, variantRule } from '../utils/variantRule';
 
-interface ImageProps {
-    src: string;
-}
-
-type Props = ImageProps & BoxProps & CSSProps<Props> & VariantProps & React.HTMLProps<HTMLImageElement>;
+type Props = BoxProps & CSSProps<Props> & VariantProps & React.ImgHTMLAttributes<HTMLImageElement>;
 
 const rule: CssFelaStyle<Theme, Props> = () => ({});
 
 function ImageComponent(props: Props, forwardedRef: React.Ref<HTMLImageElement>) {
     const { css } = useFela<Theme, Props>(props);
 
-    return (
-        <img
-            ref={forwardedRef}
-            className={css(boxRule, rule, variantRule, styleRule)}
-            alt={props.alt}
-            src={props.src}
-        />
-    );
+    return <img ref={forwardedRef} className={css(boxRule, rule, variantRule, styleRule)} {...props} />;
 }
 
 const Image = React.forwardRef(ImageComponent);

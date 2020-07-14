@@ -9,7 +9,7 @@ interface InputProps {
     loading?: boolean;
 }
 
-type Props = InputProps & BoxProps & CSSProps<Props> & VariantProps & React.HTMLProps<HTMLInputElement>;
+type Props = InputProps & BoxProps & CSSProps<Props> & VariantProps & React.InputHTMLAttributes<HTMLInputElement>;
 
 const rule: CssFelaStyle<Theme, Props> = (state) => ({
     border: `1px solid ${state.theme.color.black}`,
@@ -30,7 +30,6 @@ function InputComponent(props: Props, forwardedRef: React.Ref<HTMLInputElement>)
             ref={forwardedRef}
             className={css(boxRule, rule, variantRule, styleRule)}
             disabled={props.loading || props.disabled}
-            value={props.value}
             {...props}
         />
     );
