@@ -1,6 +1,6 @@
 import { AsProp } from './utils/getElement';
 import { BoxProps } from './utils/boxRule';
-import { CSSProps } from './utils/styleRule';
+import { CSSProps } from './utils/cssRule';
 import { Props } from 'react';
 import { VariantProp } from './utils/variantRule';
 

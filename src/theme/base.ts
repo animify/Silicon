@@ -63,6 +63,19 @@ const baseTheme: Omit<Theme, 'color'> = {
             borderRadius: 6,
             border: `2px solid ${theme.color.primary}`,
         }),
+        button: {
+            primary: ({ theme }) => ({
+                backgroundColor: theme.color.primary,
+                color: theme.color.white,
+                fontWeight: theme.fontWeight.medium,
+                padding: '8px 16px',
+                appearance: 'none',
+                outline: 0,
+                border: 0,
+                borderRadius: '4px',
+                lineHeight: '24px',
+            }),
+        },
     },
 };
 

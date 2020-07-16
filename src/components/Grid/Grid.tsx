@@ -1,13 +1,12 @@
 import React from 'react';
-import { Theme } from '../theme/types';
-import { CssFelaStyle } from 'react-fela';
 import { IStyle } from 'fela';
-import getElement from '../utils/getElement';
-import { ExtendProps, HTMLDivProps, ComponentTypes } from '../types';
-import forwardRef from '../utils/forwardRef';
-import { useRule } from '../hooks';
+import getElement from '../../utils/getElement';
+import { ExtendProps, HTMLDivProps, ComponentTypes } from '../../types';
+import forwardRef from '../../utils/forwardRef';
+import { useRule } from '../../hooks';
+import { gridStyles } from '.';
 
-interface GridProps {
+interface Props {
     gridGap?: IStyle['gridGap'];
     gridColumnGap?: IStyle['gridColumnGap'];
     gridRowGap?: IStyle['gridRowGap'];
@@ -22,29 +21,14 @@ interface GridProps {
     gridArea?: IStyle['gridArea'];
 }
 
-type Props<T> = HTMLDivProps & ComponentTypes<T> & GridProps;
-
-const rule: CssFelaStyle<Theme, Props<any>> = (state) => ({
-    gridGap: state.gridGap,
-    gridColumnGap: state.gridColumnGap,
-    gridRowGap: state.gridRowGap,
-    gridColumn: state.gridColumn,
-    gridRow: state.gridRow,
-    gridAutoFlow: state.gridAutoFlow,
-    gridAutoColumns: state.gridAutoColumns,
-    gridAutoRows: state.gridAutoRows,
-    gridTemplateColumns: state.gridTemplateColumns,
-    gridTemplateRows: state.gridTemplateRows,
-    gridTemplateAreas: state.gridTemplateAreas,
-    gridArea: state.gridArea,
-});
+export type GridProps<T> = HTMLDivProps & ComponentTypes<T> & Props;
 
 function GridComponent<T extends React.ReactType = 'div'>(
-    props: ExtendProps<Props<T>, T>,
+    props: ExtendProps<GridProps<T>, T>,
     forwardedRef: React.Ref<React.ElementType>,
 ) {
     const { className, ...rest } = props;
-    const classRule = useRule<Props<T>>({ rule, props, className });
+    const classRule = useRule<GridProps<T>>({ style: gridStyles, props, className });
     const Element = getElement(props, 'div');
 
     return (

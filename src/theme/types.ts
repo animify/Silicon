@@ -60,7 +60,7 @@ export interface ThemeTypographyScale {
 
 export type ThemeContainer = Record<ThemeScalingKey, string>;
 
-export type Variant = CssFelaStyle<Theme, {}>;
+export type Variant = CssFelaStyle<Theme, {}> | Record<string, CssFelaStyle<Theme, {}>>;
 export interface Variants {
     [key: string]: Variant;
 }
