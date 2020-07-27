@@ -1,3 +1,16 @@
+## [Version 0.0.12](https://github.com/animify/Silicon/releases/tag/v0.0.12) (2020-7-27)
+
+### New features
+
+- extendTheme: [`1f7a847`](https://github.com/animify/Silicon/commit/1f7a847)
+
+### Bug fixes
+
+- split into own subfolders: [`4ee31e3`](https://github.com/animify/Silicon/commit/4ee31e3)
+- exports: [`059c275`](https://github.com/animify/Silicon/commit/059c275)
+
+[...full changes](https://github.com/animify/Silicon/compare/v0.0.11...v0.0.12)
+
 ## [Version 0.0.11](https://github.com/animify/Silicon/releases/tag/v0.0.11) (2020-7-14)
 
 ### New features
