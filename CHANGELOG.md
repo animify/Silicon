@@ -1,3 +1,11 @@
+## [Version 0.0.13](https://github.com/animify/Silicon/releases/tag/v0.0.13) (2020-7-27)
+
+### Bug fixes
+
+- fix merge types: [`8b218e2`](https://github.com/animify/Silicon/commit/8b218e2)
+
+[...full changes](https://github.com/animify/Silicon/compare/v0.0.12...v0.0.13)
+
 ## [Version 0.0.12](https://github.com/animify/Silicon/releases/tag/v0.0.12) (2020-7-27)
 
 ### New features
