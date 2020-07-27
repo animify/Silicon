@@ -1,3 +1,11 @@
+## [Version 0.0.14](https://github.com/animify/Silicon/releases/tag/v0.0.14) (2020-7-27)
+
+### Bug fixes
+
+- fix naming: [`f4eb5f6`](https://github.com/animify/Silicon/commit/f4eb5f6)
+
+[...full changes](https://github.com/animify/Silicon/compare/v0.0.13...v0.0.14)
+
 ## [Version 0.0.13](https://github.com/animify/Silicon/releases/tag/v0.0.13) (2020-7-27)
 
 ### Bug fixes
