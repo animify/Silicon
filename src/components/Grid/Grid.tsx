@@ -4,7 +4,7 @@ import getElement from '../../utils/getElement';
 import { ExtendProps, HTMLDivProps, ComponentTypes } from '../../types';
 import forwardRef from '../../utils/forwardRef';
 import { useRule } from '../../hooks';
-import { gridStyles } from '.';
+import { gridStyles } from './styles';
 
 interface Props {
     gridGap?: IStyle['gridGap'];
