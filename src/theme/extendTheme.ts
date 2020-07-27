@@ -1,7 +1,7 @@
 import lightTheme from './light';
 import { Theme } from './types';
 
-const merge = (target: Record<string, any>, source: Record<string, any>) => {
+const merge = (target: Theme, source: Partial<Theme>) => {
     for (const key of Object.keys(source)) {
         if (source[key] instanceof Object) Object.assign(source[key], merge(target[key], source[key]));
     }
@@ -10,6 +10,6 @@ const merge = (target: Record<string, any>, source: Record<string, any>) => {
     return target;
 };
 
-export default function extendTheme(partialTheme: Partial<Theme>) {
+export default function extendTheme(partialTheme: Partial<Theme>): Theme {
     return merge(lightTheme, partialTheme);
 }
