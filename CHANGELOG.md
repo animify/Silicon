@@ -1,3 +1,11 @@
+## [Version 0.0.15](https://github.com/animify/Silicon/releases/tag/v0.0.15) (2020-7-27)
+
+### Bug fixes
+
+- fix exports: [`92c1fc4`](https://github.com/animify/Silicon/commit/92c1fc4)
+
+[...full changes](https://github.com/animify/Silicon/compare/v0.0.14...v0.0.15)
+
 ## [Version 0.0.14](https://github.com/animify/Silicon/releases/tag/v0.0.14) (2020-7-27)
 
 ### Bug fixes
