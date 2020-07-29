@@ -6,7 +6,6 @@ import { useRule } from '../../hooks';
 import { sliderStyles } from './styles';
 
 interface Props {
-    progress: number;
     loading?: boolean;
 }
 
@@ -19,6 +18,7 @@ function SliderComponent<T extends React.ReactType = 'input'>(
     const { className, ...rest } = props;
     const classRule = useRule<SliderProps<T>>({ style: sliderStyles, props, className });
     const Element = getElement(props, 'input');
+    const progress = parseFloat(props.value?.toString() || '0') / parseFloat(props.max?.toString() || '100');
 
     return (
         <Element
@@ -26,7 +26,7 @@ function SliderComponent<T extends React.ReactType = 'input'>(
             className={classRule}
             disabled={props.loading || props.disabled}
             type="range"
-            style={{ '--progress': props.progress * 100 + '%' } as React.CSSProperties}
+            style={{ '--progress': progress * 100 + '%' } as React.CSSProperties}
             {...rest}
         />
     );

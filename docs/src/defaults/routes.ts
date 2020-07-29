@@ -12,6 +12,7 @@ import {
     PageCSS,
     PageColors,
 } from '../pages';
+import PageSlider from '../pages/PageSlider';
 
 const enum RouteType {
     Button = 'Button',
@@ -20,6 +21,7 @@ const enum RouteType {
     Grid = 'Grid',
     Image = 'Image',
     Input = 'Input',
+    Slider = 'Slider',
     Link = 'Link',
     Text = 'Text',
     Variant = 'Variant',
@@ -64,6 +66,11 @@ const componentRoutes: Record<string, Route> = {
         title: RouteType.Input,
         path: '/input',
         component: PageInput,
+    },
+    [RouteType.Slider]: {
+        title: RouteType.Slider,
+        path: '/slider',
+        component: PageSlider,
     },
     [RouteType.Link]: {
         title: RouteType.Link,

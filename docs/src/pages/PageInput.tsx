@@ -6,7 +6,7 @@ import PageHeader from '../PageHeader';
 export default function PageInput() {
     return (
         <>
-            <PageHeader title="Link" description="The Link component is used for." importName="Input" />
+            <PageHeader title="Input" description="The Input component is used for." importName="Input" />
 
             <section>
                 <Example title="Default Input" description="The default input">
