@@ -1,3 +1,11 @@
+## [Version 0.0.17](https://github.com/animify/Silicon/releases/tag/v0.0.17) (2020-7-29)
+
+### Bug fixes
+
+- style Slider and add to docs: [`7cf19c6`](https://github.com/animify/Silicon/commit/7cf19c6)
+
+[...full changes](https://github.com/animify/Silicon/compare/v0.0.16...v0.0.17)
+
 ## [Version 0.0.16](https://github.com/animify/Silicon/releases/tag/v0.0.16) (2020-7-29)
 
 ### New features
