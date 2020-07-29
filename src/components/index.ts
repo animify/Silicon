@@ -6,3 +6,4 @@ export * from './Image';
 export * from './Container';
 export * from './Link';
 export * from './Input';
+export * from './Slider';
