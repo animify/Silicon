@@ -1,3 +1,11 @@
+## [Version 0.0.16](https://github.com/animify/Silicon/releases/tag/v0.0.16) (2020-7-29)
+
+### New features
+
+- add Slider component: [`9ffc3cd`](https://github.com/animify/Silicon/commit/9ffc3cd)
+
+[...full changes](https://github.com/animify/Silicon/compare/v0.0.15...v0.0.16)
+
 ## [Version 0.0.15](https://github.com/animify/Silicon/releases/tag/v0.0.15) (2020-7-27)
 
 ### Bug fixes
