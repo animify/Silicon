@@ -1,3 +1,12 @@
+## [Version 0.0.20](https://github.com/animify/Silicon/releases/tag/v0.0.20) (2020-8-10)
+
+### Bug fixes
+
+- use Size as Element tag: [`acdaff2`](https://github.com/animify/Silicon/commit/acdaff2)
+- move rendering of statics to Silicon wrapper: [`8f02d3a`](https://github.com/animify/Silicon/commit/8f02d3a)
+
+[...full changes](https://github.com/animify/Silicon/compare/v0.0.19...v0.0.20)
+
 ## [Version 0.0.19](https://github.com/animify/Silicon/releases/tag/v0.0.19) (2020-8-10)
 
 ### Bug fixes
