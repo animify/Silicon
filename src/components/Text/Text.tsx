@@ -25,7 +25,7 @@ function TextComponent<T extends React.ReactType = 'p'>(
 ) {
     const { className, ...rest } = props;
     const classRule = useRule<TextProps<T>>({ style: textStyles, props, className });
-    const Element = getElement(props, 'p');
+    const Element = getElement(props, 'p', true);
 
     return (
         <Element ref={forwardedRef} className={classRule} {...rest}>
