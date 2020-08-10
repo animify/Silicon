@@ -1,9 +1,8 @@
-import { createRenderer, IStyle } from 'fela';
+import { createRenderer } from 'fela';
 import typescript from 'fela-plugin-typescript';
 import prefixer from 'fela-plugin-prefixer';
 import unit from 'fela-plugin-unit';
 import fallbackValue from 'fela-plugin-fallback-value';
-import baseTheme from '../theme/base';
 import namedKeys from 'fela-plugin-named-keys';
 
 const namedKeysPlugin = namedKeys({
@@ -21,10 +20,6 @@ export const renderer = createRenderer({
 });
 
 renderer.renderStatic(`
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400&display=swap');
-
-
 html {
  box-sizing: border-box;
 }
@@ -326,8 +321,8 @@ textarea {
 }
 `);
 
-const globalStyle: IStyle = {
-    fontFamily: baseTheme.fontFamily.body,
-};
+// const globalStyle: IStyle = {
+//     fontFamily: baseTheme.fontFamily.body,
+// };
 
-renderer.renderStatic(globalStyle, 'html, body, p, button, input');
+// renderer.renderStatic(globalStyle, 'html, body, p, button, input');
