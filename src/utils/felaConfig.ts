@@ -316,9 +316,3 @@ textarea {
  padding: 0.2em 0;
 }
 `);
-
-// const globalStyle: IStyle = {
-//     fontFamily: baseTheme.fontFamily.body,
-// };
-
-// renderer.renderStatic(globalStyle, 'html, body, p, button, input');
