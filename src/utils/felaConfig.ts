@@ -21,6 +21,10 @@ export const renderer = createRenderer({
 });
 
 renderer.renderStatic(`
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400&display=swap');
+
+
 html {
  box-sizing: border-box;
 }
@@ -322,8 +326,8 @@ textarea {
 }
 `);
 
-// const globalStyle: IStyle = {
-//     fontFamily: baseTheme.fontFamily.body,
-// };
+const globalStyle: IStyle = {
+    fontFamily: baseTheme.fontFamily.body,
+};
 
-// renderer.renderStatic(globalStyle, 'html, body, p, button, input');
+renderer.renderStatic(globalStyle, 'html, body, p, button, input');
