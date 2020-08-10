@@ -1,11 +1,3 @@
-## [Version 0.0.18](https://github.com/animify/Silicon/releases/tag/v0.0.18) (2020-8-10)
-
-### Bug fixes
-
-- remove global fonts: [`418f01c`](https://github.com/animify/Silicon/commit/418f01c)
-
-[...full changes](https://github.com/animify/Silicon/compare/v0.0.17...v0.0.18)
-
 ## [Version 0.0.17](https://github.com/animify/Silicon/releases/tag/v0.0.17) (2020-7-29)
 
 ### Bug fixes
