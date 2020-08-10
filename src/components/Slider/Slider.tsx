@@ -15,10 +15,10 @@ function SliderComponent<T extends React.ReactType = 'input'>(
     props: ExtendProps<SliderProps<T>, T>,
     forwardedRef: React.Ref<T>,
 ) {
-    const { className, ...rest } = props;
+    const { className, value, max, ...rest } = props;
     const classRule = useRule<SliderProps<T>>({ style: sliderStyles, props, className });
     const Element = getElement(props, 'input');
-    const progress = parseFloat(props.value?.toString() || '0') / parseFloat(props.max?.toString() || '100');
+    const progress = parseFloat((value ?? 0).toString()) / parseFloat((max ?? 100).toString());
 
     return (
         <Element
