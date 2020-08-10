@@ -1,3 +1,13 @@
+## [Version 0.0.19](https://github.com/animify/Silicon/releases/tag/v0.0.19) (2020-8-10)
+
+### Bug fixes
+
+- fix slider issues: [`1de71cd`](https://github.com/animify/Silicon/commit/1de71cd)
+- remove global fonts: [`16722db`](https://github.com/animify/Silicon/commit/16722db)
+- remove inheritted box sizing: [`1ced3a6`](https://github.com/animify/Silicon/commit/1ced3a6)
+
+[...full changes](https://github.com/animify/Silicon/compare/v0.0.18...v0.0.19)
+
 ## [Version 0.0.17](https://github.com/animify/Silicon/releases/tag/v0.0.17) (2020-7-29)
 
 ### Bug fixes
