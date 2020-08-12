@@ -58,11 +58,6 @@ const baseTheme: Omit<Theme, 'color'> = {
         black: 900,
     },
     variants: {
-        card: ({ theme }) => ({
-            boxShadow: '0 4px 8px rgba(0, 0, 0, .2)',
-            borderRadius: 6,
-            border: `2px solid ${theme.color.primary}`,
-        }),
         button: {
             primary: ({ theme }) => ({
                 backgroundColor: theme.color.primary,
@@ -75,6 +70,40 @@ const baseTheme: Omit<Theme, 'color'> = {
                 borderRadius: '4px',
                 lineHeight: '24px',
             }),
+            small: {
+                padding: '4px 8px',
+            },
+            large: {
+                padding: '12px 24px',
+            },
+        },
+        input: {
+            primary: ({ theme }) => ({
+                backgroundColor: theme.color.primary,
+                color: theme.color.white,
+                fontWeight: theme.fontWeight.medium,
+                padding: '8px 16px',
+                appearance: 'none',
+                outline: 0,
+                border: 0,
+                borderRadius: '4px',
+                lineHeight: '24px',
+            }),
+        },
+        link: {
+            primary: ({ theme }) => ({
+                color: theme.color.primary,
+            }),
+        },
+        image: {
+            large: {
+                padding: '12px 24px',
+            },
+        },
+        slider: {
+            large: {
+                padding: '12px 24px',
+            },
         },
     },
 };

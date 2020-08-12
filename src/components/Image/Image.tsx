@@ -5,14 +5,14 @@ import forwardRef from '../../utils/forwardRef';
 import { useRule } from '../../hooks';
 import { imageStyles } from './styles';
 
-export type ImageProps<T> = HTMLImgProps & ComponentTypes<T>;
+export type ImageProps<T = {}> = HTMLImgProps & ComponentTypes<T>;
 
 function ImageComponent<T extends React.ReactType = 'img'>(
     props: ExtendProps<ImageProps<T>, T>,
     forwardedRef: React.Ref<T>,
 ) {
     const { className, ...rest } = props;
-    const classRule = useRule<ImageProps<T>>({ style: imageStyles, props, className });
+    const classRule = useRule<ImageProps<T>>({ style: imageStyles, props, className, variantKey: 'image' });
     const Element = getElement(props, 'img');
 
     return <Element ref={forwardedRef} className={classRule} {...rest} />;

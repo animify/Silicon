@@ -10,21 +10,16 @@ export default function PageButton() {
 
             <section>
                 <Example title="Primary Button" description="The primary button.">
-                    <Button kind="primary">Primary Button</Button>
+                    <Button>Primary Button</Button>
                 </Example>
                 <Example title="Disabled Button" description="The primary button.">
-                    <Button kind="secondary" disabled={true}>
-                        Disabled
-                    </Button>
+                    <Button disabled={true}>Disabled</Button>
                 </Example>
                 <Example title="Loading Button" description="The primary button.">
-                    <Button kind="secondary" loading={true}>
-                        Loading
-                    </Button>
+                    <Button loading={true}>Loading</Button>
                 </Example>
                 <Example title="Customized Button" description="The primary button.">
                     <Button
-                        kind="secondary"
                         css={(state) => ({
                             backgroundColor: 'red',
                             marginTop: 100,

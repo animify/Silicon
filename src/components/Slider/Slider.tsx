@@ -9,14 +9,14 @@ interface Props {
     loading?: boolean;
 }
 
-export type SliderProps<T> = HTMLInputProps & ComponentTypes<T> & Props;
+export type SliderProps<T = {}> = HTMLInputProps & ComponentTypes<T> & Props;
 
 function SliderComponent<T extends React.ReactType = 'input'>(
     props: ExtendProps<SliderProps<T>, T>,
     forwardedRef: React.Ref<T>,
 ) {
     const { className, value, max, ...rest } = props;
-    const classRule = useRule<SliderProps<T>>({ style: sliderStyles, props, className });
+    const classRule = useRule<SliderProps<T>>({ style: sliderStyles, props, className, variantKey: 'slider' });
     const Element = getElement(props, 'input');
     const progress = parseFloat((value ?? 0).toString()) / parseFloat((max ?? 100).toString());
 

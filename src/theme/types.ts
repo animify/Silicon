@@ -1,6 +1,7 @@
 import * as CSS from 'csstype';
 import { TLength } from '../types';
 import { CssFelaStyle } from 'react-fela';
+import { ButtonProps, InputProps, LinkProps, ImageProps, SliderProps } from '../components';
 
 export type ThemeScalingKey = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
@@ -60,9 +61,24 @@ export interface ThemeTypographyScale {
 
 export type ThemeContainer = Record<ThemeScalingKey, string>;
 
-export type Variant = CssFelaStyle<Theme, {}> | Record<string, CssFelaStyle<Theme, {}>>;
+export type Variant<P = {}> = CssFelaStyle<Theme, P>;
+
 export interface Variants {
-    [key: string]: Variant;
+    button: {
+        [key: string]: Variant<ButtonProps>;
+    };
+    input: {
+        [key: string]: Variant<InputProps>;
+    };
+    link: {
+        [key: string]: Variant<LinkProps>;
+    };
+    image: {
+        [key: string]: Variant<ImageProps>;
+    };
+    slider: {
+        [key: string]: Variant<SliderProps>;
+    };
 }
 
 export interface Theme {
@@ -75,5 +91,5 @@ export interface Theme {
     letterSpacing: ThemeTypographyScale;
     fontFamily: ThemeFontFamily;
     fontWeight: ThemeFontWeight;
-    variants: Variants;
+    variants: Variants | Record<string, Variant>;
 }

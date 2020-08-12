@@ -1,7 +1,7 @@
 import React from 'react';
 import Example from '../Example';
-import { Flex } from '../../../src';
 import PageHeader from '../PageHeader';
+import { Button } from '../../../src';
 
 export default function PageVariant() {
     return (
@@ -9,10 +9,11 @@ export default function PageVariant() {
             <PageHeader title="Variant" description="The variant is used for." />
 
             <section>
-                <Example title="Card Variant" description="The card variant">
-                    <Flex p={32} variant="card">
-                        Card variant
-                    </Flex>
+                <Example title="Large Button Variant" description="The large button variant">
+                    <Button variant={['primary', 'large']}>Large primary button</Button>
+                </Example>
+                <Example title="Small Button Variant" description="The small button variant">
+                    <Button variant={['primary', 'small']}>Small primary button</Button>
                 </Example>
             </section>
         </>

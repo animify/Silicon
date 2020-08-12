@@ -16,14 +16,14 @@ interface Props {
     textAlign?: IStyle['textAlign'];
 }
 
-export type LinkProps<T> = Omit<HTMLAnchorProps, 'size'> & ComponentTypes<T> & Props;
+export type LinkProps<T = {}> = Omit<HTMLAnchorProps, 'size'> & ComponentTypes<T> & Props;
 
 function LinkComponent<T extends React.ReactType = 'a'>(
     props: ExtendProps<LinkProps<T>, T>,
     forwardedRef: React.Ref<T>,
 ) {
     const { className, ...rest } = props;
-    const classRule = useRule<LinkProps<T>>({ style: linkStyles, props, className });
+    const classRule = useRule<LinkProps<T>>({ style: linkStyles, props, className, variantKey: 'link' });
     const Element = getElement(props, 'a');
 
     return (
