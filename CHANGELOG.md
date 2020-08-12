@@ -1,3 +1,11 @@
+## [Version 0.0.21](https://github.com/animify/Silicon/releases/tag/v0.0.21) (2020-8-12)
+
+### Bug fixes
+
+- support multiple variants: [`748dea6`](https://github.com/animify/Silicon/commit/748dea6)
+
+[...full changes](https://github.com/animify/Silicon/compare/v0.0.20...v0.0.21)
+
 ## [Version 0.0.20](https://github.com/animify/Silicon/releases/tag/v0.0.20) (2020-8-10)
 
 ### Bug fixes
